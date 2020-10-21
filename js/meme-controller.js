@@ -2,8 +2,7 @@
 
 function onAddLine() {
     var elTxt = document.querySelector('[name=line-txt]');
-    if (!elTxt.value.length) return;
-    addNewLine(elTxt.value);
+    addNewLine();
     elTxt.value = '';
     drawCanvas();
 }
@@ -11,6 +10,10 @@ function onAddLine() {
 function onChangeLineTxt(elTxt) {
     changeLineText(elTxt.value);
     drawCanvas();
+}
+
+function onSwitchLines() {
+    switchLine();
 }
 
 function onChangeFontSize(elBtn) {

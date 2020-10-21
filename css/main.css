@@ -20,7 +20,6 @@ canvas {
 .grid {
     display: grid;
     grid-gap: 20px;
-    /* width: 100vw; */
 }
 
 .img-container {
@@ -37,6 +36,10 @@ canvas {
 
 .img-container img:hover, button {
     cursor: pointer;
+}
+
+.controls {
+    text-align: center;
 }
 
 .hide {
