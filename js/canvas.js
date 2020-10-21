@@ -45,12 +45,11 @@ function drawText(line, idx) {
     gCtx.strokeText(line.txt, line.pos.x, line.pos.y);
     gCtx.save();
 
-    var currMeme = getMeme();
-    if (currMeme.selectedLineIdx === idx) {
+    var currLine = getSelectedLineIdx();
+    if (currLine === idx) {
         gCtx.globalAlpha = 0.2;
         gCtx.fillStyle = 'white';
         gCtx.fillRect(0, line.pos.y - line.size, gCanvas.width, line.size + 10);
-        // gCtx.fillRect(0, 0, 250, 250);
         gCtx.restore();
     }
 }
