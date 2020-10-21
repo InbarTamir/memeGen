@@ -6,12 +6,19 @@ var gMeme;
 var gMemes = _loadMemes();
 
 function setMeme(imgId) {
-    var currMeme = gMemes.find((meme) => meme.id === imgId);
-    if (currMeme) gMeme = currMeme
-    else { 
-        gMemes.push(_createMeme(imgId));
+    var currMeme = (gMemes.length) ? gMemes.find((meme) => meme.selectedImgId === imgId) : null;
+    if (!currMeme) { 
+        currMeme = _createMeme(imgId);
+        gMemes.push(currMeme);
         _saveMemes(gMemes);
     }
+    gMeme = currMeme;
+    setSelectedLine(gMeme.lines[gMeme.selectedLineIdx]);
+}
+
+function changeLineText(txt) {
+    gMeme.lines[gMeme.selectedLineIdx].txt = txt;
+    _saveMemes(gMemes);
 }
 
 function addNewLine(txt) {
@@ -19,12 +26,22 @@ function addNewLine(txt) {
     if (emptyLine) emptyLine.txt = txt;
     else {
         gMeme.lines.push(_createLine(txt));
-        _saveMemes(gMemes);
     }
+    _saveMemes(gMemes);
+}
+
+function getMeme() {
+    return gMeme;
 }
 
 function getLines() {
     return gMeme.lines;
+}
+
+function changeFontSize(value) {
+    var currLineIdx = gMeme.selectedLineIdx;
+    gMeme.lines[currLineIdx].size += value;
+    _saveMemes(gMemes)
 }
 
 function _createLine(txt) {

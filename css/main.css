@@ -35,7 +35,7 @@ canvas {
     grid-area: span 1 / span 1;
 }
 
-.img-container img:hover {
+.img-container img:hover, button {
     cursor: pointer;
 }
 

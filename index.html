@@ -21,10 +21,16 @@
         <div class="canvas-container">
             <canvas id="meme-canvas" height="450" width="450"></canvas>
         </div>
-        <label for="line-txt">Add Text:</label>
-        <input type="text" name="line-txt" id="line-txt">
-        <button class="btn-line-txt" onclick="onAddLine()">Add!</button>
-        <button onclick="toggleCanvas()">Close Meme</button>
+        <div class="controls">
+            <label for="line-txt">Text:</label>
+            <input type="text" name="line-txt" id="line-txt" onkeyup="onChangeLineTxt(this)">
+            <button class="btn-line-txt" onclick="onAddLine()">+</button>
+
+            <button class="btn-increase-font" data-val="1" onclick="onChangeFontSize(this)">A+</button>
+            <button class="btn-decrease-font" data-val="-1" onclick="onChangeFontSize(this)">A-</button>
+
+            <button onclick="toggleCanvas()">Close Meme</button>
+        </div>
     </section>
 
     <script src="js/services/storage-service.js"></script>
