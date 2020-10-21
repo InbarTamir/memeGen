@@ -16,12 +16,18 @@ function onSwitchLines() {
     switchLine();
 }
 
+function onMoveLine(elBtn) {
+    var value = +elBtn.dataset.val;
+    moveLine(value);
+    drawCanvas();
+}
+
 function onChangeFontSize(elBtn) {
     var value = +elBtn.dataset.val;
     changeFontSize(value);
     drawCanvas();
 }
 
-function setSelectedLine(line) {
+function setSelectedLineInput(line) {
     document.querySelector('[name=line-txt]').value = line.txt;
 }

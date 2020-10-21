@@ -13,7 +13,7 @@ function setMeme(imgId) {
         _saveMemes(gMemes);
     }
     gMeme = currMeme;
-    setSelectedLine(gMeme.lines[gMeme.selectedLineIdx]);
+    setSelectedLineInput(gMeme.lines[gMeme.selectedLineIdx]);
 }
 
 function changeLineText(txt) {
@@ -34,7 +34,16 @@ function addNewLine() {
     }
     gMeme.selectedLineIdx = gMeme.lines.length - 1;
     _saveMemes(gMemes);
-    setSelectedLine(gMeme.lines[gMeme.selectedLineIdx]);
+    setSelectedLineInput(gMeme.lines[gMeme.selectedLineIdx]);
+}
+
+function moveLine(value) {
+    var currLine = gMeme.lines[gMeme.selectedLineIdx];
+    var nextPos = currLine.pos.y + value;
+    if (nextPos >= 0 && nextPos < gCanvas.height) {
+        currLine.pos.y = nextPos;
+        _saveMemes(gMemes);
+    }
 }
 
 function switchLine() {
@@ -42,8 +51,9 @@ function switchLine() {
     var nextLineIdx = 0;
     if (currLineIdx + 1 < gMeme.lines.length) nextLineIdx = currLineIdx + 1;
     if (gMeme.lines[nextLineIdx].txt.length) gMeme.selectedLineIdx = nextLineIdx;
+    
     _saveMemes(gMemes);
-    setSelectedLine(gMeme.lines[gMeme.selectedLineIdx]);
+    setSelectedLineInput(gMeme.lines[gMeme.selectedLineIdx]);
     drawCanvas();
 }
 

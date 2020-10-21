@@ -20,6 +20,7 @@ canvas {
 .grid {
     display: grid;
     grid-gap: 20px;
+    /* color: rgba(245, 245, 220, 0.548) */
 }
 
 .img-container {
