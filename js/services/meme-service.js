@@ -1,10 +1,10 @@
 'use strict';
 const STORAGE_MEMES_KEY = 'memesDB';
+const POSITIONS = [{ x: 225, y: 50 }, { x: 225, y: 420 }, { x: 225, y: 225 }];
 
 var gKeywords = { 'happy': 12, 'funny puk': 1 };
 var gMemes = _loadMemes();
 var gMeme;
-var gSelectedLineIdx;
 
 function setMeme(imgId) {
     var currMeme = (gMemes.length) ? gMemes.find((meme) => meme.selectedImgId === imgId) : null;
@@ -14,33 +14,34 @@ function setMeme(imgId) {
         _saveMemes(gMemes);
     }
     gMeme = currMeme;
-    gSelectedLineIdx = gMeme.selectedLineIdx;
-    setSelectedLineInput(gMeme.lines[gSelectedLineIdx]);
+    var selectedLine = (gMeme.lines.length) ? gMeme.lines[gMeme.selectedLineIdx] : {txt: ''};
+    setSelectedLineInput(selectedLine);
 }
 
 function changeLineText(txt) {
-    if (!txt.trim().length && gSelectedLineIdx > 1) {
-        gMeme.lines.splice(gSelectedLineIdx, 1);
+    if (!gMeme.lines.length) gMeme.lines.push(_createLine());
+    
+    var currLineIdx = gMeme.selectedLineIdx;
+    if (!txt.trim().length) {
+        gMeme.lines.splice(currLineIdx, 1);
         gMeme.selectedLineIdx = 0;
-        gSelectedLineIdx = 0;
-    } else gMeme.lines[gSelectedLineIdx].txt = txt;
+    } else gMeme.lines[currLineIdx].txt = txt;
 
     _saveMemes(gMemes);
 }
 
 function addNewLine() {
     var emptyLine = gMeme.lines.find(line => line.txt === '');
-    if (emptyLine) emptyLine.txt = '';
-    else {
+    if (!emptyLine) {
         gMeme.lines.push(_createLine());
     }
     gMeme.selectedLineIdx = gMeme.lines.length - 1;
     _saveMemes(gMemes);
-    setSelectedLineInput(gMeme.lines[gSelectedLineIdx]);
+    setSelectedLineInput(gMeme.lines[gMeme.selectedLineIdx]);
 }
 
 function moveLine(value) {
-    var currLine = gMeme.lines[gSelectedLineIdx];
+    var currLine = gMeme.lines[gMeme.selectedLineIdx];
     var nextPos = currLine.pos.y + value;
     if (nextPos >= 0 && nextPos < gCanvas.height) {
         currLine.pos.y = nextPos;
@@ -49,20 +50,20 @@ function moveLine(value) {
 }
 
 function switchLine() {
+    var currLineIdx = gMeme.selectedLineIdx;
     var nextLineIdx = 0;
-    if (gSelectedLineIdx + 1 < gMeme.lines.length) nextLineIdx = gSelectedLineIdx + 1;
+    if (currLineIdx + 1 < gMeme.lines.length) nextLineIdx = currLineIdx + 1;
     if (gMeme.lines[nextLineIdx].txt.length) {
         gMeme.selectedLineIdx = nextLineIdx;
-        gSelectedLineIdx = nextLineIdx;
+        currLineIdx = nextLineIdx;
     }
-    
     _saveMemes(gMemes);
     setSelectedLineInput(gMeme.lines[gMeme.selectedLineIdx]);
     drawCanvas();
 }
 
 function changeFontSize(value) {
-    gMeme.lines[gSelectedLineIdx].size += value;
+    gMeme.lines[gMeme.selectedLineIdx].size += value;
     _saveMemes(gMemes);
 }
 
@@ -75,16 +76,25 @@ function getLines() {
 }
 
 function getSelectedLineIdx() {
-    return gSelectedLineIdx;
+    return gMeme.selectedLineIdx;
 }
 
 function _createLine() {
+    var newPos = POSITIONS[2];
+    for (var i = 0; i < 2; i++) {
+        let currPos = POSITIONS[i];
+        let res = gMeme.lines.findIndex(line => line.pos.x === currPos.x && line.pos.y === currPos.y);
+        if (res < 0) {
+            newPos = currPos;
+            break;
+        }
+    }
     return {
         txt: '',
         size: 20,
         align: 'center',
         color: 'red',
-        pos: { x: 225, y: 225 }
+        pos: newPos
     };
 }
 
@@ -101,21 +111,6 @@ function _createMeme(imgId) {
     return {
         selectedImgId: imgId,
         selectedLineIdx: 0,
-        lines: [
-            {
-                txt: '',
-                size: 20,
-                align: 'center',
-                color: 'red',
-                pos: { x: 225, y: 50 }
-            },
-            {
-                txt: '',
-                size: 20,
-                align: 'center',
-                color: 'red',
-                pos: { x: 225, y: 420 }
-            }
-        ]
+        lines: []
     };
 }
