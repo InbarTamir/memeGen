@@ -2,7 +2,6 @@
 const STORAGE_MEMES_KEY = 'memesDB';
 const POSITIONS = [{ x: 225, y: 50 }, { x: 225, y: 420 }, { x: 225, y: 225 }];
 
-var gKeywords = { 'happy': 12, 'funny puk': 1 };
 var gMemes = _loadMemes();
 var gMeme;
 

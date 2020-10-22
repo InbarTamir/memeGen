@@ -4,15 +4,13 @@ var gCanvas;
 var gCtx;
 var gImg;
 
-function onInit() {
+function onCanvasInit(elImg) {
     gCanvas = document.querySelector('#meme-canvas');
     gCtx = gCanvas.getContext('2d');
-}
 
-function onOpenCanvas(elImg) {
     var imgId = elImg.dataset.img;
     setMeme(imgId);
-    var img = getImgToShow();
+    var img = getImgForCanvas();
     gImg = new Image();
     if (img) {
         gImg.src = img.url;
