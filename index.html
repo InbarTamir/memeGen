@@ -21,19 +21,19 @@
                 </li>
                 <li>
                     <input type="radio" name="nav-radio" id="nav-memes">
-                    <label for="nav-memes" onclick="onSavedMemes()">Memes</label>
+                    <label for="nav-memes" onclick="onSavedMemeImgs()">Memes</label>
                 </li>
             </ul>
         </header>
 
         <main>
-            <section class="gallery">
+            <section class="main-imgs gallery">
                 <div class="img-container grid"></div>
             </section>
 
             <section class="edit-meme hide">
                 <div class="canvas-container edit-container">
-                    <canvas id="meme-canvas" height="540" width="520"></canvas>
+                    <canvas id="meme-canvas" height="534" width="520"></canvas>
                 </div>
                 <div class="controls edit-container">
                     <input type="text" name="line-txt" id="line-txt" onkeyup="onChangeLineTxt(this)">
@@ -79,11 +79,22 @@
                                 onchange="onColorChange(this)"></button>
                         </label>
                     </div>
+
+                    <div class="canvas-to-img">
+                        <div class="share">
+                            <img src="img/controls/share.png">
+                            <a href="#" onclick="onShareCanvas(this)" download="">Share</a>
+                        </div>
+                        <div class="download">
+                            <img src="img/controls/download.png">
+                            <a href="#" onclick="onDownloadCanvas(this)" download="">Download</a>
+                        </div>
+                    </div>
                 </div>
             </section>
 
-            <section class="saved-memes hide">
-                <div class="img-container">No Saved Memes.</div>
+            <section class="saved-memes gallery hide">
+                <div class="img-container grid">No Saved Memes.</div>
             </section>
         </main>
     </div>
@@ -93,9 +104,9 @@
     <script src="js/gallery-controller.js"></script>
     <script src="js/services/saved-meme-service.js"></script>
     <script src="js/saved-meme-controller.js"></script>
+    <script src="js/canvas.js"></script>
     <script src="js/services/meme-service.js"></script>
     <script src="js/meme-controller.js"></script>
-    <script src="js/canvas.js"></script>
 </body>
 
 </html>

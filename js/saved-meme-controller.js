@@ -1,7 +1,7 @@
 'use strict'
 
-function onSavedMemes() {
+function onSavedMemeImgs() {
     var elSections = document.querySelectorAll('section');
     elSections.forEach(section => section.classList.add('hide'));
-    document.querySelector('.saved-memes').classList.remove('hide');
+    document.querySelector('.saved-memes').classList.remove('hide');    
 }

@@ -6,10 +6,11 @@ var gImg;
 
 function onCanvasInit(elImg) {
     document.querySelector('.main-nav [checked]').checked = false;
-    
+
     gCanvas = document.querySelector('#meme-canvas');
     gCtx = gCanvas.getContext('2d');
-    
+
+    setPositions();
     var imgId = elImg.dataset.img;
     setMeme(imgId);
     var img = getImgForCanvas();
@@ -22,6 +23,19 @@ function onCanvasInit(elImg) {
         drawCanvas();
     };
     showCanvas();
+}
+
+function onShareCanvas(elLink) {
+}
+
+function onDownloadCanvas(elLink) {
+    const selectedLineIdx = getSelectedLineIdx();
+    setSelectedLineIdx('-1');
+    drawCanvas();
+    setSelectedLineIdx(selectedLineIdx);
+    const data = gCanvas.toDataURL();
+    elLink.href = data;
+    elLink.download = 'myMeme.jpg';
 }
 
 function showCanvas() {
@@ -68,6 +82,18 @@ function focusOnText() {
 
 function selectFontFamily() {
     document.querySelector('.select-font').value = getSelectedLineFont();
+}
+
+function getCanvasPositions() {
+    var positions = [{ x: 0, y: 0 }, { x: 0, y: 0 }, { x: 0, y: 0 }];
+    if (gCtx) {
+        let x = Math.round(gCanvas.width / 2);
+        let topPos = { x, y: Math.round(gCanvas.height / 9) };
+        let bottomPos = { x, y: gCanvas.height - topPos.y };
+        let middlePos = { x, y: Math.round(gCanvas.height / 2) };
+        positions = [topPos, bottomPos, middlePos];
+    }
+    return positions;
 }
 
 function clearCanvas() {

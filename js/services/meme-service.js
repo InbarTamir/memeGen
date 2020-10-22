@@ -1,7 +1,7 @@
 'use strict';
 const STORAGE_MEMES_KEY = 'memesDB';
-const POSITIONS = [{ x: 225, y: 50 }, { x: 225, y: 420 }, { x: 225, y: 225 }];
 
+var gPositions = [{ x: 0, y: 0 }, { x: 0, y: 0 }, { x: 0, y: 0 }];
 var gMemes = _loadMemes();
 var gMeme;
 
@@ -13,13 +13,17 @@ function setMeme(imgId) {
         _saveMemes();
     }
     gMeme = currMeme;
-    var selectedLine = (gMeme.lines.length) ? gMeme.lines[gMeme.selectedLineIdx] : {txt: ''};
+    var selectedLine = (gMeme.lines.length) ? gMeme.lines[gMeme.selectedLineIdx] : { txt: '' };
     setSelectedLineInput(selectedLine);
+}
+
+function setPositions() {
+    gPositions = getCanvasPositions();
 }
 
 function changeLineText(txt) {
     if (!gMeme.lines.length) gMeme.lines.push(_createLine());
-    
+
     var currLineIdx = gMeme.selectedLineIdx;
     gMeme.lines[currLineIdx].txt = txt;
 
@@ -40,7 +44,7 @@ function deleteLine() {
     gMeme.lines.splice(gMeme.selectedLineIdx, 1);
     gMeme.selectedLineIdx = 0;
     _saveMemes();
-    var txt = (gMeme.lines.length) ? gMeme.lines[gMeme.selectedLineIdx] : {txt: ''};
+    var txt = (gMeme.lines.length) ? gMeme.lines[gMeme.selectedLineIdx] : { txt: '' };
     setSelectedLineInput(txt);
 }
 
@@ -94,6 +98,10 @@ function getMeme() {
     return gMeme;
 }
 
+function getMemes() {
+    return gMemes;
+}
+
 function getLines() {
     return gMeme.lines;
 }
@@ -102,14 +110,18 @@ function getSelectedLineIdx() {
     return gMeme.selectedLineIdx;
 }
 
+function setSelectedLineIdx(idx) {
+    gMeme.selectedLineIdx = idx;
+}
+
 function getSelectedLineFont() {
-    return gMeme.lines[gMeme.selectedLineIdx].fontFamily;
+    return (gMeme.lines.length && gMeme.selectedLineIdx >= 0) ? gMeme.lines[gMeme.selectedLineIdx].fontFamily : 'Impact';
 }
 
 function _createLine() {
-    var newPos = POSITIONS[2];
+    var newPos = gPositions[2];
     for (var i = 0; i < 2; i++) {
-        let currPos = POSITIONS[i];
+        let currPos = gPositions[i];
         let res = gMeme.lines.findIndex(line => line.pos.x === currPos.x && line.pos.y === currPos.y);
         if (res < 0) {
             newPos = currPos;

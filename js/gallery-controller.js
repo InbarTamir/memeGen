@@ -16,5 +16,5 @@ function renderImages() {
     imgs.forEach(img => {
         strHtml += `<img data-img="${img.id}" src="${img.url}" onclick="onCanvasInit(this)" />`;
     });
-    document.querySelector('.img-container').innerHTML = strHtml;
+    document.querySelector('.main-imgs .img-container').innerHTML = strHtml;
 }

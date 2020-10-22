@@ -13,7 +13,7 @@ function onDeleteLine() {
 }
 
 function onChangeLineTxt(elTxt) {
-    changeLineText(elTxt.value);
+    changeLineText(elTxt.value.toUpperCase());
     drawCanvas();
 }
 

@@ -20,6 +20,12 @@ body {
     background-color: #22252c;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 1em;
+}
+
 button {
     border: none;
 }
@@ -48,8 +54,8 @@ canvas {
 }
 
 .canvas-container {
-    width: 100vw;
-    height: 500px
+    /* width: 100vw; */
+    /* height: 500px */
 }
 
 header {
@@ -114,12 +120,15 @@ main {
 
 /* Images */
 
-.img-container {
+.gallery {
+    padding: 30px 0;
     border-radius: 10px;
     background-color: #383b42;
+}
+
+.img-container {
     grid-template-columns: repeat(auto-fit, 200px);
     grid-auto-rows: 173px;
-    padding: 30px 57px;
 }
 
 .img-container img {
@@ -140,34 +149,38 @@ main {
     height: 100%;
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
 }
 
 .edit-container {
     height: 540px;
     display: flex;
     flex-direction: column;
-    min-width: 520px;
-    max-width: 520px;
+    justify-content: center;
+    align-items: center;
+    min-width: 530px;
+    max-width: 530px;
     border-radius: 30px;
     background-color: rgba(235, 238, 243, 0.11);
     box-shadow: 1px 5px 0 rgba(187, 196, 209, 0.11);
 }
 
 .canvas-container {
-    margin-right: 30px;
+    margin-right: 20px;
+    padding-top: 6px;
 }
 
 canvas {
+    max-width: 520px;
     border-radius: 30px;
-    border: 6px solid rgba(235, 238, 243, 0.09);
+    box-shadow: 1px 5px 0 #27292e;
 }
 
 /* Controls */
 
 .controls {
     text-align: center;
-    padding: 15px;
+    justify-content: space-between;
+    padding: 40px;
 }
 
 .controls > * {
@@ -190,10 +203,12 @@ canvas {
     font-family: poppinsMedium, sans-serif;
     font-size: 1.5625rem;
     text-align: center;
-    padding: 0.8em;
+    padding: 0.3em;
     border: none;
+    width: 100%;
     color: #3d3d3d;
     border-radius: 28px;
+    text-transform: uppercase;
     background-color: #ebeef3;
     box-shadow: 1px 5px 0 #bbc4d1, inset 0 5px 0 #ffffff;
 } 
@@ -269,7 +284,9 @@ canvas {
     height: 50px;
     border: none;
     appearance: none;
-    padding: 5px 30px;
+    padding: 5px 20px;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
     font-size: 1.285715em;
     text-transform: uppercase;
     background: url(../img/controls/dropdownArrow.png) no-repeat 205px, white;
@@ -294,6 +311,36 @@ label[for="change-color"] {
     padding: 0;
     border: none;
     visibility: hidden;
+}
+
+.canvas-to-img {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.canvas-to-img > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    height: 51px;
+    width: 213px;
+}
+
+.canvas-to-img *:not(:last-child) {
+    margin-right: 20px;
+}
+
+.share {
+    box-shadow: 1px 6px 0 #165c9c, inset 0 5px 0 rgba(255, 255, 255, 0.58);
+    background-color: #1e7cd3;
+}
+
+.download {
+    box-shadow: 1px 6px 0 #632687, inset 0 5px 0 rgba(255, 255, 255, 0.58);
+    background-color: #8f44bb;
 }
 
 /* General */
