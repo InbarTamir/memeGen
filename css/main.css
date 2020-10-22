@@ -276,8 +276,8 @@ canvas {
     font-family: poppinsMedium, sans-serif;
 }
 
-.btn-s {
-    background: url(../img/controls/s.png) no-repeat center, white;
+.btn-stroke {
+    background: url(../img/controls/stroke.png) no-repeat center, white;
 }
 
 label[for="change-color"] {

@@ -70,8 +70,23 @@ function changeFontSize(value) {
     _saveMemes();
 }
 
+function changeFont(font) {
+    gMeme.lines[gMeme.selectedLineIdx].fontFamily = font;
+    _saveMemes();
+}
+
+function toggleStroke() {
+    gMeme.lines[gMeme.selectedLineIdx].stroke = (gMeme.lines[gMeme.selectedLineIdx].stroke === 'black') ? 'transparent' : 'black';
+    _saveMemes();
+}
+
 function changeTextAlign(dir) {
     gMeme.lines[gMeme.selectedLineIdx].align = dir;
+    _saveMemes();
+}
+
+function changeColor(color) {
+    gMeme.lines[gMeme.selectedLineIdx].color = color;
     _saveMemes();
 }
 
@@ -85,6 +100,10 @@ function getLines() {
 
 function getSelectedLineIdx() {
     return gMeme.selectedLineIdx;
+}
+
+function getSelectedLineFont() {
+    return gMeme.lines[gMeme.selectedLineIdx].fontFamily;
 }
 
 function _createLine() {
@@ -102,6 +121,7 @@ function _createLine() {
         size: 40,
         align: 'center',
         color: 'white',
+        fontFamily: 'Impact',
         stroke: 'black',
         pos: newPos
     };

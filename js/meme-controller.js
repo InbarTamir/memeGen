@@ -29,14 +29,36 @@ function onMoveLine(elBtn) {
 }
 
 function onChangeFontSize(elBtn) {
-    var value = +elBtn.dataset.val;
-    changeFontSize(value);
+    if (document.querySelector('[name="line-txt"]').value.trim() === '') return;
+    var size = +elBtn.dataset.val;
+    changeFontSize(size);
+    drawCanvas();
+}
+
+function onFontChange(elSelect) {
+    if (document.querySelector('[name="line-txt"]').value.trim() === '') return;
+    var font = elSelect.value;
+    changeFont(font);
+    drawCanvas();
+}
+
+function onToggleStroke() {
+    if (document.querySelector('[name="line-txt"]').value.trim() === '') return;
+    toggleStroke();
     drawCanvas();
 }
 
 function onTextAlign(elBtn) {
+    if (document.querySelector('[name="line-txt"]').value.trim() === '') return;
     var dir = elBtn.dataset.dir;
     changeTextAlign(dir);
+    drawCanvas();
+}
+
+function onColorChange(elColor) {
+    if (document.querySelector('[name="line-txt"]').value.trim() === '') return;
+    var color = elColor.value;
+    changeColor(color);
     drawCanvas();
 }
 

@@ -54,10 +54,25 @@
                         <button class="btn-align-right" data-dir="right" onclick="onTextAlign(this)"></button>
 
                         <select class="select-font" name="select-font" onchange="onFontChange(this)">
-                            <option value="impact">impact</option>
+                            <option value="Impact">impact</option>
+                            <option value="Arial">arial</option>
+                            <option value="Times New Roman">times new roman</option>
+                            <option value="Georgia">georgia</option>
+                            <option value="Verdana">verdana</option>
+                            <option value="cursive">cursive</option>
+                            <option value="Courier New">courier new</option>
+                            <option value="Gill Sans">gill sans</option>
+                            <option value="Cambria">cambria</option>
+                            <option value="Lucida Sans">lucida sans</option>
+                            <option value="Segoe UI">segoe ui</option>
+                            <option value="Trebuchet MS">trebuchet ms</option>
+                            <option value="sans-serif">sans serif</option>
+                            <option value="serif">serif</option>
+                            <option value="fantasy">fantasy</option>
+                            <option value="monospace">monospace</option>
                         </select>
 
-                        <button class="btn-s"></button>
+                        <button class="btn-stroke" onclick="onToggleStroke()"></button>
 
                         <label for="change-color">
                             <input type="color" id="change-color" name="change-color"

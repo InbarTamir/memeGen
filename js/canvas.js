@@ -35,12 +35,13 @@ function drawCanvas() {
     gCtx.drawImage(gImg, 0, 0, gCanvas.width, gCanvas.height);
     drawLines();
     focusOnText();
+    selectFontFamily();
 }
 
 function drawText(line, idx) {
     if (!line.txt) return;
     gCtx.fillStyle = line.color;
-    gCtx.font = `${line.size}px Impact`;
+    gCtx.font = `bold ${line.size}px ${line.fontFamily}`;
     gCtx.textAlign = line.align;
     gCtx.fillText(line.txt, line.pos.x, line.pos.y);
     gCtx.strokeStyle = line.stroke;
@@ -63,6 +64,10 @@ function drawLines() {
 
 function focusOnText() {
     document.querySelector('[name="line-txt"]').focus();
+}
+
+function selectFontFamily() {
+    document.querySelector('.select-font').value = getSelectedLineFont();
 }
 
 function clearCanvas() {
