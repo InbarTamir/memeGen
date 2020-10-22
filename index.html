@@ -17,11 +17,11 @@
             <ul class="main-nav clean-list">
                 <li>
                     <input type="radio" name="nav-radio" id="nav-gallery" checked>
-                    <label for="nav-gallery">Gallery</label>
+                    <label for="nav-gallery" onclick="onOpenGallery()">Gallery</label>
                 </li>
                 <li>
-                    <input type="radio" name="nav-radio" id="nav-about">
-                    <label for="nav-about">About</label>
+                    <input type="radio" name="nav-radio" id="nav-memes">
+                    <label for="nav-memes" onclick="onSavedMemes()">Memes</label>
                 </li>
             </ul>
         </header>
@@ -29,8 +29,8 @@
         <main>
             <section class="gallery">
                 <div class="img-container grid"></div>
-                <footer></footer>
             </section>
+
             <section class="edit-meme hide">
                 <div class="canvas-container edit-container">
                     <canvas id="meme-canvas" height="540" width="520"></canvas>
@@ -41,8 +41,9 @@
                     <div class="line-ctrls">
                         <button class="btn-switch-lines" onclick="onSwitchLines()"></button>
                         <button class="btn-line-txt" onclick="onAddLine()"></button>
-                        <button class="btn-move-up" data-val="-3" onclick="onMoveLine(this)"></button>
-                        <button class="btn-move-down" data-val="3" onclick="onMoveLine(this)"></button>
+                        <button class="btn-delete-line" onclick="onDeleteLine()"></button>
+                        <button class="btn-move-up" data-val="-5" onclick="onMoveLine(this)"></button>
+                        <button class="btn-move-down" data-val="5" onclick="onMoveLine(this)"></button>
                     </div>
 
                     <div class="font-ctrls">
@@ -51,18 +52,23 @@
                         <button class="btn-align-left" data-dir="left" onclick="onTextAlign(this)"></button>
                         <button class="btn-align-center" data-dir="center" onclick="onTextAlign(this)"></button>
                         <button class="btn-align-right" data-dir="right" onclick="onTextAlign(this)"></button>
+
                         <select class="select-font" name="select-font" onchange="onFontChange(this)">
                             <option value="impact">impact</option>
-                            <option value="saab">Saab</option>
-                            <option value="opel">Opel</option>
-                            <option value="audi">Audi</option>
                         </select>
-                        <button class="btn-s"></button>
-                        <button class="change-color"><input type="color" name="change-color" onchange="onColorChange(this)"></button>
-                    </div>
 
-                    <button onclick="toggleCanvas()">Close Meme</button>
+                        <button class="btn-s"></button>
+
+                        <label for="change-color">
+                            <input type="color" id="change-color" name="change-color"
+                                onchange="onColorChange(this)"></button>
+                        </label>
+                    </div>
                 </div>
+            </section>
+
+            <section class="saved-memes hide">
+                <div class="img-container">No Saved Memes.</div>
             </section>
         </main>
     </div>
@@ -70,6 +76,8 @@
     <script src="js/services/storage-service.js"></script>
     <script src="js/services/gallery-service.js"></script>
     <script src="js/gallery-controller.js"></script>
+    <script src="js/services/saved-meme-service.js"></script>
+    <script src="js/saved-meme-controller.js"></script>
     <script src="js/services/meme-service.js"></script>
     <script src="js/meme-controller.js"></script>
     <script src="js/canvas.js"></script>

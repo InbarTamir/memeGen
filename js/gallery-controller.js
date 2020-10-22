@@ -4,6 +4,12 @@ function onInit() {
     renderImages();
 }
 
+function onOpenGallery() {
+    var elSections = document.querySelectorAll('section');
+    elSections.forEach(section => section.classList.add('hide'));
+    document.querySelector('.gallery').classList.remove('hide');
+}
+
 function renderImages() {
     const imgs = getImages();
     var strHtml = '';

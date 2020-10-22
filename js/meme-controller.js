@@ -1,9 +1,14 @@
-'use strict'
+'use strict';
 
 function onAddLine() {
     var elTxt = document.querySelector('[name=line-txt]');
     addNewLine();
     elTxt.value = '';
+    drawCanvas();
+}
+
+function onDeleteLine() {
+    deleteLine();
     drawCanvas();
 }
 
@@ -14,6 +19,7 @@ function onChangeLineTxt(elTxt) {
 
 function onSwitchLines() {
     switchLine();
+    drawCanvas();
 }
 
 function onMoveLine(elBtn) {
@@ -25,6 +31,12 @@ function onMoveLine(elBtn) {
 function onChangeFontSize(elBtn) {
     var value = +elBtn.dataset.val;
     changeFontSize(value);
+    drawCanvas();
+}
+
+function onTextAlign(elBtn) {
+    var dir = elBtn.dataset.dir;
+    changeTextAlign(dir);
     drawCanvas();
 }
 
