@@ -10,19 +10,26 @@
 
 <body onload="onInit()">
     <section class="gallery">
-        <header class="navbar"></header>
-        <main>
-            <h1>Memes Gallery:</h1>
+        <header class="navbar">
+            <div class="logo">
+                <img src="img/logo/logo.png" />
+            </div>
+            <ul class="main-nav clean-list">
+                <li id="nav-gallery"><a href="#nav-gallery">Gallery</a></li>
+                <li id="nav-about"><a href="#nav-about">About</a></li>
+            </ul>
+        </header>
+        <main class="container">
             <div class="img-container grid">
-                <img data-img="1" src="img/1.jpg" onclick="onOpenCanvas(this)" />
-                <img data-img="2" src="img/2.jpg" onclick="onOpenCanvas(this)" />
+                <img data-img="1" src="img/gallery/1.jpg" onclick="onOpenCanvas(this)" />
+                <img data-img="2" src="img/gallery/2.jpg" onclick="onOpenCanvas(this)" />
             </div>
         </main>
         <footer></footer>
     </section>
 
     <section class="edit-meme hide">
-        <div class="canvas-container">
+        <div class="canvas-container container">
             <canvas id="meme-canvas" height="450" width="450"></canvas>
         </div>
         <div class="controls">
@@ -30,11 +37,11 @@
             <input type="text" name="line-txt" id="line-txt" onkeyup="onChangeLineTxt(this)">
             <button class="btn-line-txt" onclick="onAddLine()">+</button>
 
-            <button class="btn-move-up" data-val="-1" onclick="onMoveLine(this)">&#8593</button>
-            <button class="btn-move-down" data-val="1" onclick="onMoveLine(this)">&#8595</button>
+            <button class="btn-move-up" data-val="-3" onclick="onMoveLine(this)">&#8593</button>
+            <button class="btn-move-down" data-val="3" onclick="onMoveLine(this)">&#8595</button>
 
-            <button class="btn-increase-font" data-val="1" onclick="onChangeFontSize(this)">A+</button>
-            <button class="btn-decrease-font" data-val="-1" onclick="onChangeFontSize(this)">A-</button>
+            <button class="btn-increase-font" data-val="3" onclick="onChangeFontSize(this)">A+</button>
+            <button class="btn-decrease-font" data-val="-3" onclick="onChangeFontSize(this)">A-</button>
 
             <button class="btn-switch-lines" onclick="onSwitchLines()">&#8645</button>
 

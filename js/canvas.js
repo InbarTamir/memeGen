@@ -46,9 +46,8 @@ function drawText(line, idx) {
 
     var currLine = getSelectedLineIdx();
     if (currLine === idx) {
-        gCtx.globalAlpha = 0.2;
-        gCtx.fillStyle = 'white';
-        gCtx.fillRect(0, line.pos.y - line.size, gCanvas.width, line.size + 10);
+        gCtx.fillStyle = 'rgba(255,255,255,0.2)';
+        gCtx.fillRect(line.pos.x - 2 - gCtx.measureText(line.txt).width / 2, line.pos.y - line.size, gCtx.measureText(line.txt).width + 4, line.size + 10);
         gCtx.restore();
     }
 }
