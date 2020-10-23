@@ -1,7 +1,9 @@
 'use strict';
 const STORAGE_IMAGES_KEY = 'imagesDB';
+const STORAGE_IMGS_LAST_ID = 'imagesLastIdDB';
 
 var gImgs = _loadImages();
+var gImgsLastId = _loadImgsLastId();
 var gKeywords = _setKeywords();
 
 function getImgForCanvas() {
@@ -12,6 +14,13 @@ function getImgForCanvas() {
 
 function getImages() {
     return gImgs;
+}
+
+function getKeywords() {
+    return gImgs.reduce((keywords, img) => {
+        keywords.push(...img.keywords);
+        return keywords;
+    }, []);
 }
 
 function _loadImages() {
@@ -38,15 +47,9 @@ function _loadImages() {
             { id: 18, url: 'img/gallery/18.jpg', keywords: ['happy', 'cute', 'explain'] },
         ];
         _saveImages(imgs);
+        _saveImgsLastId(imgs[imgs.length - 1].id);
     }
     return imgs;
-}
-
-function getKeywords() {
-    return gImgs.reduce((keywords, img) => {
-        keywords.push(...img.keywords);
-        return keywords;
-    }, []);
 }
 
 function _setKeywords() {
@@ -54,6 +57,15 @@ function _setKeywords() {
     var keywordsMap = {};
     keywords.forEach((keyword) => keywordsMap[keyword] = (keywordsMap[keyword]) ? keywordsMap[keyword] + 1 : 1);
     return keywordsMap;
+}
+
+function _loadImgsLastId() {
+    return loadFromStorage(STORAGE_IMGS_LAST_ID);
+}
+
+function _saveImgsLastId(id) {
+    gImgsLastId = id;
+    saveToStorage(STORAGE_IMGS_LAST_ID, id);
 }
 
 function _saveImages(imgs) {

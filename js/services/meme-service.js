@@ -1,15 +1,19 @@
 'use strict';
 const STORAGE_MEMES_KEY = 'memesDB';
+const STORAGE_MEMES_LAST_ID = 'memesLastIdDB';
 
 var gPositions = [{ x: 0, y: 0 }, { x: 0, y: 0 }, { x: 0, y: 0 }];
 var gMemes = _loadMemes();
+var gMemesLastId = _loadMemesLastId();
 var gMeme;
 
-function setMeme(imgId) {
-    var currMeme = (gMemes.length) ? gMemes.find((meme) => meme.selectedImgId === imgId) : null;
-    if (!currMeme) {
-        currMeme = _createMeme(imgId);
+function setMeme(imgId, type) {
+    var currMeme;
+    if (type === 'modified') currMeme = (gMemes.length) ? gMemes.find((meme) => meme.id === +imgId) : null;
+    if (!currMeme || type === 'new') {
+        currMeme = _createMeme(+imgId);
         gMemes.push(currMeme);
+        _saveMemesLastId();
         _saveMemes();
     }
     gMeme = currMeme;
@@ -98,6 +102,10 @@ function getMeme() {
     return gMeme;
 }
 
+function getMemeId() {
+    return gMeme.id;
+}
+
 function getMemes() {
     return gMemes;
 }
@@ -116,6 +124,15 @@ function setSelectedLineIdx(idx) {
 
 function getSelectedLineFont() {
     return (gMeme.lines.length && gMeme.selectedLineIdx >= 0) ? gMeme.lines[gMeme.selectedLineIdx].fontFamily : 'Impact';
+}
+
+function _createMeme(imgId) {
+    return {
+        id: ++gMemesLastId,
+        selectedImgId: imgId,
+        selectedLineIdx: 0,
+        lines: [],
+    };
 }
 
 function _createLine() {
@@ -139,19 +156,19 @@ function _createLine() {
     };
 }
 
+function _loadMemesLastId() {
+    return loadFromStorage(STORAGE_MEMES_LAST_ID);
+}
+
 function _loadMemes() {
     var memes = loadFromStorage(STORAGE_MEMES_KEY);
     return memes || [];
 }
 
-function _saveMemes() {
-    saveToStorage(STORAGE_MEMES_KEY, gMemes);
+function _saveMemesLastId() {
+    saveToStorage(STORAGE_MEMES_LAST_ID, gMemesLastId);
 }
 
-function _createMeme(imgId) {
-    return {
-        selectedImgId: imgId,
-        selectedLineIdx: 0,
-        lines: []
-    };
+function _saveMemes() {
+    saveToStorage(STORAGE_MEMES_KEY, gMemes);
 }

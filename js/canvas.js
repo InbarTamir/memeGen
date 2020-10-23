@@ -12,8 +12,9 @@ function onCanvasInit(elImg) {
 
     setPositions();
     var imgId = elImg.dataset.img;
-    setMeme(imgId);
-    var img = getImgForCanvas();
+    var imgType = elImg.dataset.type;
+    setMeme(imgId, imgType);
+    const img = getImgForCanvas();
     gImg = new Image();
     if (img) {
         gImg.src = img.url;
@@ -29,12 +30,8 @@ function onShareCanvas(elLink) {
 }
 
 function onDownloadCanvas(elLink) {
-    const selectedLineIdx = getSelectedLineIdx();
-    setSelectedLineIdx('-1');
-    drawCanvas();
-    setSelectedLineIdx(selectedLineIdx);
-    const data = gCanvas.toDataURL();
-    elLink.href = data;
+    const currImg = getCurrMemedImage();
+    elLink.href = currImg.url;
     elLink.download = 'myMeme.jpg';
 }
 
@@ -45,6 +42,7 @@ function showCanvas() {
 }
 
 function drawCanvas() {
+    _saveCanvas();
     clearCanvas();
     gCtx.drawImage(gImg, 0, 0, gCanvas.width, gCanvas.height);
     drawLines();
@@ -98,4 +96,15 @@ function getCanvasPositions() {
 
 function clearCanvas() {
     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
+}
+
+function _saveCanvas() {
+    clearCanvas();
+    const selectedLineIdx = getSelectedLineIdx();
+    setSelectedLineIdx('-1');
+    gCtx.drawImage(gImg, 0, 0, gCanvas.width, gCanvas.height);
+    drawLines();
+    setSelectedLineIdx(selectedLineIdx);
+    const data = gCanvas.toDataURL();
+    saveMemedImage(data);
 }
