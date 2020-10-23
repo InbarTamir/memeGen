@@ -53,11 +53,6 @@ canvas {
     display: block;
 }
 
-.canvas-container {
-    /* width: 100vw; */
-    /* height: 500px */
-}
-
 header {
     height: 100vh;
 }
@@ -141,6 +136,48 @@ main {
 
 .img-container img:hover, button, label {
     cursor: pointer;
+}
+
+/* Saved Memes */
+
+.meme-hover {
+    position: relative; 
+    height: 100%;
+    width: 100%;
+}
+
+.meme-hover img {
+    transition: .5s;
+}
+
+.meme-btns {
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.meme-btns > * {
+    border-radius: 10px;
+    max-height: 27%;
+    min-height: 27%;
+    min-width: 25%;
+    max-width: 25%;
+}
+
+.meme-btns :first-child {
+    margin-right: 20px;
+}
+
+.meme-btns .btn-delete-meme {
+    background: url(../img/controls/deleteLine.png) no-repeat center, red;
+}
+
+.meme-btns .btn-edit-meme {
+    background: url(../img/controls/edit.png) no-repeat center, rgb(224, 255, 251);
 }
 
 /* Edit Meme - Canvas */
@@ -361,6 +398,10 @@ label[for="change-color"] {
 
 .hide {
     display: none;
+}
+
+.opacity {
+    opacity: 0.3;
 }
 
 .clean-list {

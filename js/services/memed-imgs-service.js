@@ -23,6 +23,14 @@ function saveMemedImage(data) {
     _saveMemedImages();
 }
 
+function deleteMemedImage(imgId) {
+    var imgIdx = gMemedImages.findIndex(img => img.id === imgId);
+    if (imgIdx) {
+        gMemedImages.splice(imgIdx, 1);
+        _saveMemedImages();
+    }
+}
+
 function _createMemedImg(imgId, data) {
     const currImg = getImgForCanvas();
     var newImg = JSON.parse(JSON.stringify(currImg));

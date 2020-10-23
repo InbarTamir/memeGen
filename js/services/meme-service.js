@@ -52,6 +52,14 @@ function deleteLine() {
     setSelectedLineInput(txt);
 }
 
+function deleteMeme(imgId) {
+    var memeIdx = gMemes.findIndex(meme => meme.id === imgId);
+    if (memeIdx) {
+        gMemes.splice(memeIdx, 1);
+        _saveMemes();
+    }
+}
+
 function moveLine(value) {
     var currLine = gMeme.lines[gMeme.selectedLineIdx];
     var nextPos = currLine.pos.y + value;
