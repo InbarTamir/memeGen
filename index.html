@@ -83,7 +83,13 @@
                     <div class="canvas-to-img">
                         <div class="share">
                             <img src="img/controls/share.png">
-                            <a href="#" onclick="onShareCanvas(this)" download="">Share</a>
+                            <form action="" method="POST" enctype="multipart/form-data"
+                                onsubmit="uploadImg(this, event)">
+                                <input name="img" id="imgData" type="hidden" />
+                                <div class="share-container">
+                                    <button class="btn-share" type="submit">Share</button>
+                                </div>
+                            </form>
                         </div>
                         <div class="download">
                             <img src="img/controls/download.png">
@@ -104,6 +110,7 @@
     <script src="js/gallery-controller.js"></script>
     <script src="js/services/saved-meme-service.js"></script>
     <script src="js/saved-meme-controller.js"></script>
+    <script src="js/services/upload-service.js"></script>
     <script src="js/canvas.js"></script>
     <script src="js/services/meme-service.js"></script>
     <script src="js/meme-controller.js"></script>

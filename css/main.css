@@ -320,7 +320,7 @@ label[for="change-color"] {
 
 }
 
-.canvas-to-img > * {
+.canvas-to-img > *, .btn-share {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -336,6 +336,14 @@ label[for="change-color"] {
 .share {
     box-shadow: 1px 6px 0 #165c9c, inset 0 5px 0 rgba(255, 255, 255, 0.58);
     background-color: #1e7cd3;
+}
+
+.btn-share {
+    color: inherit;
+    width: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    background: none;
 }
 
 .download {

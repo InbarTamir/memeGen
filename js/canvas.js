@@ -26,7 +26,7 @@ function onCanvasInit(elImg) {
     showCanvas();
 }
 
-function onShareCanvas(elLink) {
+function onShareCanvas() {
 }
 
 function onDownloadCanvas(elLink) {
@@ -105,6 +105,6 @@ function _saveCanvas() {
     gCtx.drawImage(gImg, 0, 0, gCanvas.width, gCanvas.height);
     drawLines();
     setSelectedLineIdx(selectedLineIdx);
-    const data = gCanvas.toDataURL();
+    const data = gCanvas.toDataURL('image/jpeg');
     saveMemedImage(data);
 }
