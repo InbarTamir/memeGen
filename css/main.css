@@ -40,7 +40,7 @@ button:active {
 }
 
 [type="radio"] {
-    display: none;  
+    display: none;
 }
 
 label {
@@ -51,10 +51,6 @@ label {
 
 canvas {
     display: block;
-}
-
-header {
-    height: 100vh;
 }
 
 main {
@@ -72,8 +68,7 @@ main {
 /* Header - Logo & Navbar */
 
 .navbar {
-    min-height: 73px;
-    max-height: 73px;
+    height: 73px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -83,12 +78,17 @@ main {
     background-image: linear-gradient(-86deg, #33be6d 0%, #0c98b9 100%);
 }
 
+.navbar .hamburger {
+    display: none;
+}
+
 .logo {
     height: 40%;
 }
 
 .logo img {
     height: 100%;
+    cursor: pointer;
 }
 
 .main-nav {
@@ -103,11 +103,11 @@ main {
     border-radius: 20px;
 }
 
-.main-nav [name="nav-radio"]:not(:checked) + label:hover {
+.main-nav [name="nav-radio"]:not(:checked)+label:hover {
     filter: drop-shadow(0 0 4px black);
 }
 
-[name="nav-radio"]:checked + label {
+[name="nav-radio"]:checked+label {
     color: #21ac91;
     background-color: white;
     box-shadow: 0 3px 6px 1px rgba(0, 0, 0, 0.15);
@@ -141,7 +141,7 @@ main {
 /* Saved Memes */
 
 .meme-hover {
-    position: relative; 
+    position: relative;
     height: 100%;
     width: 100%;
 }
@@ -160,7 +160,7 @@ main {
     width: 100%;
 }
 
-.meme-btns > * {
+.meme-btns>* {
     border-radius: 10px;
     max-height: 27%;
     min-height: 27%;
@@ -189,13 +189,14 @@ main {
 }
 
 .edit-container {
-    height: 540px;
+    max-width: 530px;
+    max-height: 48vw;
+    width: 50vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-width: 530px;
-    max-width: 530px;
+    flex: auto;
     border-radius: 30px;
     background-color: rgba(235, 238, 243, 0.11);
     box-shadow: 1px 5px 0 rgba(187, 196, 209, 0.11);
@@ -203,11 +204,12 @@ main {
 
 .canvas-container {
     margin-right: 20px;
-    padding-top: 6px;
 }
 
 canvas {
+    width: 98%;
     max-width: 520px;
+    max-height: 98%;
     border-radius: 30px;
     box-shadow: 1px 5px 0 #27292e;
 }
@@ -217,12 +219,13 @@ canvas {
 .controls {
     text-align: center;
     justify-content: space-between;
-    padding: 40px;
+    padding: 4%;
 }
 
-.controls > * {
+.controls>* {
     margin: 10px auto;
     display: flex;
+    flex: auto;
 }
 
 .controls button {
@@ -248,7 +251,7 @@ canvas {
     text-transform: uppercase;
     background-color: #ebeef3;
     box-shadow: 1px 5px 0 #bbc4d1, inset 0 5px 0 #ffffff;
-} 
+}
 
 .btn-switch-lines {
     box-shadow: 1px 5px 0 #048b97, inset 0 5px 0 rgba(255, 255, 255, 0.58);
@@ -262,21 +265,21 @@ canvas {
 
 .btn-move-up {
     box-shadow: 1px 5px 0 #5d0151, inset 0 5px 0 rgba(255, 255, 255, 0.58);
-    background: url(../img/controls/upArrow.png) no-repeat center ,linear-gradient(-38deg, #5d0151 0%, #b33783 100%);
+    background: url(../img/controls/upArrow.png) no-repeat center, linear-gradient(-38deg, #5d0151 0%, #b33783 100%);
 }
 
 .btn-move-down {
     box-shadow: 1px 5px 0 #5d0151, inset 0 5px 0 rgba(255, 255, 255, 0.58);
-    background: url(../img/controls/downArrow.png) no-repeat center ,linear-gradient(-38deg, #5d0151 0%, #b33783 100%);
+    background: url(../img/controls/downArrow.png) no-repeat center, linear-gradient(-38deg, #5d0151 0%, #b33783 100%);
 }
 
 .btn-delete-line {
     box-shadow: 1px 5px 0 #8c0606, inset 0 5px 0 rgba(255, 255, 255, 0.58);
-    background: url(../img/controls/deleteLine.png) no-repeat center ,linear-gradient(-38deg, #cf1d37 0%, #cf1d37 1%, #f05036 100%);
+    background: url(../img/controls/deleteLine.png) no-repeat center, linear-gradient(-38deg, #cf1d37 0%, #cf1d37 1%, #f05036 100%);
 }
 
 .font-ctrls {
-    width: 445px;
+    max-width: 445px;
     height: 151px;
     display: flex;
     flex-wrap: wrap;
@@ -287,7 +290,7 @@ canvas {
     background-color: #19a59f;
 }
 
-.font-ctrls > * {
+.font-ctrls>* {
     border-radius: 10px;
     box-shadow: 1px 5px 0 rgba(92, 92, 92, 0.55), inset 0 5px 0 rgba(255, 255, 255, 0.58);
 }
@@ -354,10 +357,9 @@ label[for="change-color"] {
     width: 100%;
     display: flex;
     justify-content: space-between;
-
 }
 
-.canvas-to-img > *, .btn-share {
+.canvas-to-img>*, .btn-share {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -404,8 +406,124 @@ label[for="change-color"] {
     opacity: 0.3;
 }
 
+.transparent {
+    opacity: 0;
+    visibility: hidden;
+}
+
 .clean-list {
     list-style-type: none;
     margin: 0;
     padding: 0;
+}
+
+@media only screen and (max-width: 1004px) {
+    canvas {
+        min-width: 98%;
+        min-height: 98%;
+    }
+    .controls {
+        padding: 3%;
+    }
+}
+
+@media only screen and (max-width: 858px) {
+    .controls {
+        padding: 2vw;
+    }
+    .font-ctrls {
+        padding: 0.5vw;
+        justify-content: space-around;
+    }
+}
+
+@media only screen and (max-width: 804px) {
+    .controls {
+        padding: 1vw;
+    }
+}
+
+@media only screen and (max-width: 765px) {
+    .controls {
+        padding: 0;
+    }
+    .font-ctrls {
+        padding: 0;
+    }
+    .controls button, .controls select, .canvas-to-img>* {
+        height: 45px;
+    }
+    .grid {
+        grid-gap: 2vw;
+    }
+}
+
+@media only screen and (max-width: 682px) {
+    .page-container {
+        height: 100vh;
+    }
+    .navbar {
+        margin: 0;
+        min-height: 130px;
+        max-height: 130px;
+        border-radius: unset;
+    }
+    .navbar .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+    .list-container {
+        right: 0;
+        top: 130px;
+        position: absolute;
+        height: calc(100vh - 130px);
+        width: 100%;
+        background-color: #22252cb2;
+        z-index: 1;
+    }
+    .main-nav {
+        float: right;
+        width: 50vw;
+        height: 100%;
+        flex-direction: column;
+        background-color: #2cd18cdc;
+        border-left: 1px solid #585858;
+    }
+    .main-nav li:first-child {
+        border-top: 1px solid #2f805edc;
+    }
+    .main-nav li {
+        width: 100%;
+        height: 70px;
+        border-bottom: 1px solid #2f805edc;
+    }
+    .main-nav li>* {
+        height: 100%;
+        border-radius: unset;
+        justify-content: center;
+    }
+    main {
+        margin: 10px;
+    }
+    .gallery {
+        margin-top: 17px;
+    }
+    .img-container {
+        grid-template-columns: repeat(auto-fit, 300px);
+        grid-auto-rows: 287px;
+    }
+    .edit-meme {
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .edit-container {
+        margin-right: 0;
+        min-height: 49%;
+        min-width: 60vw;
+    }
+    .controls {
+        padding: 5px 15px;
+        margin-bottom: 3px;
+    }
 }

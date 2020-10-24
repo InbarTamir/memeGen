@@ -1,6 +1,7 @@
 'user strict'
 
 function onInit() {
+    if (window.innerWidth <= 682) document.querySelector('.list-container').classList.add('transparent');
     renderImages();
 }
 
@@ -8,6 +9,7 @@ function onOpenGallery() {
     var elSections = document.querySelectorAll('section');
     elSections.forEach(section => section.classList.add('hide'));
     document.querySelector('.gallery').classList.remove('hide');
+    if (window.innerWidth <= 682) document.querySelector('.list-container').classList.add('transparent');
 }
 
 function renderImages() {

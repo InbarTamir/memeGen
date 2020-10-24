@@ -12,18 +12,21 @@
     <div class="page-container">
         <header class="navbar">
             <div class="logo">
-                <img src="img/logo/logo.png" />
+                <img src="img/logo/logo.png" onclick="onOpenGallery()" />
             </div>
-            <ul class="main-nav clean-list">
-                <li>
-                    <input type="radio" name="nav-radio" id="nav-gallery" checked>
-                    <label for="nav-gallery" onclick="onOpenGallery()">Gallery</label>
-                </li>
-                <li>
-                    <input type="radio" name="nav-radio" id="nav-memes">
-                    <label for="nav-memes" onclick="onSavedMemeImgs()">Memes</label>
-                </li>
-            </ul>
+            <div class="list-container" onclick="onToggleMenu()">
+                <ul class="main-nav clean-list">
+                    <li onclick="onToggleMenu()">
+                        <input type="radio" name="nav-radio" id="nav-gallery" checked>
+                        <label for="nav-gallery" onclick="onOpenGallery()">Gallery</label>
+                    </li>
+                    <li onclick="onToggleMenu()">
+                        <input type="radio" name="nav-radio" id="nav-memes">
+                        <label for="nav-memes" onclick="onSavedMemeImgs()">Memes</label>
+                    </li>
+                </ul>
+            </div>
+            <img class="hamburger hide" src="img/logo/hamburger.png" onclick="onToggleMenu()" />
         </header>
 
         <main>
@@ -114,6 +117,7 @@
     <script src="js/canvas.js"></script>
     <script src="js/services/meme-service.js"></script>
     <script src="js/meme-controller.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
