@@ -118,13 +118,13 @@ main {
 /* Images */
 
 .search-container {
-    width: 33.813rem;
+    width: 37rem;
     height: 3.625rem;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 29px;
-    margin: -0.625rem 0.25rem 1.25rem 1.5625rem;
+    margin: 0 20px 30px;
     background-color: #22252c;
 }
 
@@ -551,7 +551,7 @@ label[for="change-color"] {
     }
     .edit-meme {
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
     }
     .edit-container {
@@ -577,5 +577,11 @@ label[for="change-color"] {
     }
     .canvas-to-img *:not(:last-child) {
         margin-right: 10px;
+    }
+    .canvas-to-img * {
+        font-size: 1rem;
+    }
+    .search-container {
+        width: 94%;
     }
 }
