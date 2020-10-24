@@ -23,6 +23,10 @@ function getKeywords() {
     }, []);
 }
 
+function getKeywordsMap() {
+    return gKeywords;
+}
+
 function _loadImages() {
     var imgs = loadFromStorage(STORAGE_IMAGES_KEY);
     if (!imgs || !imgs.length) {

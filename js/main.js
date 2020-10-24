@@ -11,6 +11,24 @@ window.addEventListener('resize', () => {
     }
 });
 
+function onInit() {
+    if (window.innerWidth <= 682) document.querySelector('.list-container').classList.add('transparent');
+    renderImages();
+    setKeywordsList();
+}
+
 function onToggleMenu() {
     document.querySelector('.list-container').classList.toggle('transparent');
+}
+
+function onSearch() {
+    const keyword = document.querySelector('.search').value;
+    renderImages(keyword);
+}
+
+function setKeywordsList() {
+    var strHtml = '';
+    const keywords = Object.keys(getKeywordsMap());
+    keywords.forEach(keyword => strHtml += `<option value="${keyword}">`);
+    document.querySelector('.search-list').innerHTML = strHtml;
 }

@@ -31,6 +31,11 @@
 
         <main>
             <section class="main-imgs gallery">
+                <div class="search-container">
+                    <input class="search" list="keywords" oninput="onSearch()" placeholder="Search">
+                    <datalist class="search-list" id="keywords"></datalist>
+                    <img src="img/serach.png" onclick="onSearch()" />
+                </div>
                 <div class="img-container grid"></div>
             </section>
 

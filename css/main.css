@@ -115,6 +115,36 @@ main {
 
 /* Images */
 
+.search-container {
+    width: 541px;
+    height: 58px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 29px;
+    margin: -10px 4px 20px 25px;
+    background-color: #22252c;
+}
+
+.search {
+    width: 80%;
+    height: 80%;
+    margin-right: 20px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+input::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+
+.search-container img {
+    cursor: pointer;
+}
+
 .gallery {
     padding: 30px 0;
     border-radius: 10px;
@@ -238,8 +268,12 @@ canvas {
 .line-ctrls {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+}
+
+.line-ctrls > *:not(:last-child) {
+    margin-right: 10px;
 }
 
 .controls [name="line-txt"] {
@@ -468,8 +502,8 @@ label[for="change-color"] {
     .navbar {
         margin: 0;
         padding: 4vw;
-        min-height: 100px;
-        max-height: 100px;
+        min-height: 90px;
+        max-height: 90px;
         border-radius: unset;
     }
     .navbar .hamburger {
@@ -478,7 +512,7 @@ label[for="change-color"] {
     }
     .list-container {
         right: 0;
-        top: 120px;
+        top: 90px;
         position: absolute;
         height: calc(100vh - 130px);
         width: 100%;

@@ -1,9 +1,4 @@
-'user strict'
-
-function onInit() {
-    if (window.innerWidth <= 682) document.querySelector('.list-container').classList.add('transparent');
-    renderImages();
-}
+'user strict';
 
 function onOpenGallery() {
     var elSections = document.querySelectorAll('section');
@@ -12,11 +7,13 @@ function onOpenGallery() {
     if (window.innerWidth <= 682) document.querySelector('.list-container').classList.add('transparent');
 }
 
-function renderImages() {
+function renderImages(keyword = '') {
     const imgs = getImages();
     var strHtml = '';
     imgs.forEach(img => {
-        strHtml += `<img data-img="${img.id}" data-type="new" src="${img.url}" onclick="onCanvasInit(this)" />`;
+        if (keyword === '' || img.keywords.find(key => key.indexOf(keyword) >= 0)) {
+            strHtml += `<img data-img="${img.id}" data-type="new" src="${img.url}" onclick="onCanvasInit(this)" />`;
+        }
     });
-    document.querySelector('.main-imgs .img-container').innerHTML = strHtml;
+    document.querySelector('.main-imgs .img-container').innerHTML = (strHtml === '') ? 'No matching images.' : strHtml;
 }
