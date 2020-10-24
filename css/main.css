@@ -235,8 +235,11 @@ canvas {
     border: none;
 }
 
-.line-ctrls button:not(:last-child) {
-    margin-right: 15px;
+.line-ctrls {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .controls [name="line-txt"] {
@@ -329,7 +332,7 @@ canvas {
     text-overflow: ellipsis;
     font-size: 1.285715em;
     text-transform: uppercase;
-    background: url(../img/controls/dropdownArrow.png) no-repeat 205px, white;
+    background: url(../img/controls/dropdownArrow.png) no-repeat calc(100% - 5px), white;
     font-family: poppinsMedium, sans-serif;
 }
 
@@ -454,7 +457,7 @@ label[for="change-color"] {
         height: 45px;
     }
     .grid {
-        grid-gap: 2vw;
+        grid-gap: 3vw;
     }
 }
 
@@ -464,8 +467,9 @@ label[for="change-color"] {
     }
     .navbar {
         margin: 0;
-        min-height: 130px;
-        max-height: 130px;
+        padding: 4vw;
+        min-height: 120px;
+        max-height: 120px;
         border-radius: unset;
     }
     .navbar .hamburger {
@@ -474,7 +478,7 @@ label[for="change-color"] {
     }
     .list-container {
         right: 0;
-        top: 130px;
+        top: 120px;
         position: absolute;
         height: calc(100vh - 130px);
         width: 100%;
@@ -506,7 +510,7 @@ label[for="change-color"] {
         margin: 10px;
     }
     .gallery {
-        margin-top: 17px;
+        margin-top: 10px;
     }
     .img-container {
         grid-template-columns: repeat(auto-fit, 300px);
@@ -520,10 +524,30 @@ label[for="change-color"] {
     .edit-container {
         margin-right: 0;
         min-height: 49%;
-        min-width: 60vw;
+        width: 98%;
     }
     .controls {
         padding: 5px 15px;
         margin-bottom: 3px;
+    }
+
+    .controls button, .controls label {
+        height: 40px;
+        width: 15vw;
+    }
+
+    .controls select {
+        height: 40px;
+        width: 50vw;
+        font-size: 1em;
+    }
+
+    .font-ctrls {
+        height: 40%;
+        margin: 3px auto 0;
+    }
+    
+    .canvas-to-img *:not(:last-child) {
+        margin-right: 10px;
     }
 }
