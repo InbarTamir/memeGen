@@ -6,10 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memes Generator</title>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <link rel="stylesheet" href="css/editor.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/helpers.css">
 </head>
 
-<body onload="onInit()">
+<body onload="onInit()" onselectstart="return false">
     <div class="page-container">
+
+        <!-- HEADER -->
         <header class="navbar">
             <div class="logo">
                 <img src="img/logo/logo.png" onclick="onOpenGallery()" />
@@ -29,20 +35,27 @@
             <img class="hamburger hide" src="img/logo/hamburger.png" onclick="onToggleMenu()" />
         </header>
 
+        <!-- MAIN CONTENT -->
         <main>
+            <!-- GALLERY -->
             <section class="main-imgs gallery">
                 <div class="search-container">
-                    <input class="search" list="keywords" oninput="onSearch()" placeholder="Search">
-                    <datalist class="search-list" id="keywords"></datalist>
-                    <img src="img/serach.png" onclick="onSearch()" />
+                    <div class="search-bar">
+                        <input class="search-input" list="keywords" oninput="onSearch()" placeholder="Search">
+                        <datalist class="search-list" id="keywords"></datalist>
+                        <img src="img/serach.png" onclick="onSearch()" />
+                    </div>
+                    <div class="keywords-container"></div>
                 </div>
                 <div class="img-container grid"></div>
             </section>
-
+            <!-- EDITOR -->
             <section class="edit-meme hide">
+                <!-- CANVAS -->
                 <div class="canvas-container edit-container">
-                    <canvas id="meme-canvas" height="534" width="520"></canvas>
+                    <canvas id="meme-canvas" height="534" width="520"> </canvas>
                 </div>
+                <!-- CONTROLS -->
                 <div class="controls edit-container">
                     <input type="text" name="line-txt" id="line-txt" onkeyup="onChangeLineTxt(this)">
 
@@ -62,22 +75,22 @@
                         <button class="btn-align-right" data-dir="right" onclick="onTextAlign(this)"></button>
 
                         <select class="select-font" name="select-font" onchange="onFontChange(this)">
-                            <option value="Impact">impact</option>
-                            <option value="Arial">arial</option>
-                            <option value="Times New Roman">times new roman</option>
-                            <option value="Georgia">georgia</option>
-                            <option value="Verdana">verdana</option>
-                            <option value="cursive">cursive</option>
-                            <option value="Courier New">courier new</option>
-                            <option value="Gill Sans">gill sans</option>
-                            <option value="Cambria">cambria</option>
-                            <option value="Lucida Sans">lucida sans</option>
-                            <option value="Segoe UI">segoe ui</option>
-                            <option value="Trebuchet MS">trebuchet ms</option>
-                            <option value="sans-serif">sans serif</option>
-                            <option value="serif">serif</option>
-                            <option value="fantasy">fantasy</option>
-                            <option value="monospace">monospace</option>
+                            <option style="font-family: Impact;" value="Impact">impact</option>
+                            <option style="font-family: Arial;" value="Arial">arial</option>
+                            <option style="font-family: Times New Roman;" value="Times New Roman">times new roman</option>
+                            <option style="font-family: Georgia;" value="Georgia">georgia</option>
+                            <option style="font-family: Verdana;" value="Verdana">verdana</option>
+                            <option style="font-family: cursive;" value="cursive">cursive</option>
+                            <option style="font-family: ;" value="Courier New">courier new</option>
+                            <option style="font-family: ;" value="Gill Sans">gill sans</option>
+                            <option style="font-family: ;" value="Cambria">cambria</option>
+                            <option style="font-family: ;" value="Lucida Sans">lucida sans</option>
+                            <option style="font-family: ;" value="Segoe UI">segoe ui</option>
+                            <option style="font-family: ;" value="Trebuchet MS">trebuchet ms</option>
+                            <option style="font-family: ;" value="sans-serif">sans serif</option>
+                            <option style="font-family: ;" value="serif">serif</option>
+                            <option style="font-family: ;" value="fantasy">fantasy</option>
+                            <option style="font-family: ;" value="monospace">monospace</option>
                         </select>
 
                         <button class="btn-stroke" onclick="onToggleStroke()"></button>
@@ -106,7 +119,7 @@
                     </div>
                 </div>
             </section>
-
+            <!-- SAVED MEMES -->
             <section class="saved-memes gallery hide">
                 <div class="img-container">No Saved Memes.</div>
             </section>

@@ -1,0 +1,24 @@
+.grid {
+    display: grid;
+    justify-content: center;
+    grid-gap: 1.5rem 1.875rem;
+}
+
+.hide {
+    display: none;
+}
+
+.opacity {
+    opacity: 0.3;
+}
+
+.transparent {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.clean-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}

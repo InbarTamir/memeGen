@@ -1,0 +1,216 @@
+/* Edit Meme - Canvas */
+
+.edit-meme {
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.edit-container {
+    max-width: 33.125rem;
+    max-height: 48vw;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: auto;
+    border-radius: 30px;
+    background-color: rgba(235, 238, 243, 0.11);
+    box-shadow: 1px 5px 0 rgba(187, 196, 209, 0.11);
+}
+
+.canvas-container {
+    margin-right: 1.25rem;
+}
+
+canvas {
+    width: 98%;
+    max-width: 32.5rem;
+    max-height: 98%;
+    border-radius: 30px;
+    box-shadow: 1px 5px 0 #27292e;
+}
+
+/* Controls */
+
+.controls {
+    text-align: center;
+    justify-content: space-between;
+    padding: 3vw;
+}
+
+.controls>* {
+    margin: 0.625rem auto;
+    display: flex;
+    flex: auto;
+}
+
+.controls button {
+    border-radius: 10px;
+    height: 3.125rem;
+    width: 3.125rem;
+    border: none;
+}
+
+.line-ctrls {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.line-ctrls>*:not(:last-child) {
+    margin-right: 0.625rem;
+}
+
+.controls [name="line-txt"] {
+    font-family: poppinsMedium, sans-serif;
+    font-size: 1.5625rem;
+    text-align: center;
+    padding: 0.3em;
+    border: none;
+    width: 100%;
+    color: #3d3d3d;
+    border-radius: 28px;
+    text-transform: uppercase;
+    background-color: #ebeef3;
+    box-shadow: 1px 5px 0 #bbc4d1, inset 0 5px 0 #ffffff;
+}
+
+.btn-switch-lines {
+    box-shadow: 1px 5px 0 #048b97, inset 0 5px 0 rgba(255, 255, 255, 0.58);
+    background: url(../img/controls/upDownArrow.png) no-repeat center, linear-gradient(-38deg, #66c4dc 0%, #40b1ce 50%, #0c98bb 100%);
+}
+
+.btn-line-txt {
+    box-shadow: 1px 5px 0 #015d33, inset 0 5px 0 rgba(255, 255, 255, 0.58);
+    background: url(../img/controls/addLine.png) no-repeat center, linear-gradient(-38deg, #42eb5c 0%, #37b34a 100%);
+}
+
+.btn-move-up {
+    box-shadow: 1px 5px 0 #5d0151, inset 0 5px 0 rgba(255, 255, 255, 0.58);
+    background: url(../img/controls/upArrow.png) no-repeat center, linear-gradient(-38deg, #5d0151 0%, #b33783 100%);
+}
+
+.btn-move-down {
+    box-shadow: 1px 5px 0 #5d0151, inset 0 5px 0 rgba(255, 255, 255, 0.58);
+    background: url(../img/controls/downArrow.png) no-repeat center, linear-gradient(-38deg, #5d0151 0%, #b33783 100%);
+}
+
+.btn-delete-line {
+    box-shadow: 1px 5px 0 #8c0606, inset 0 5px 0 rgba(255, 255, 255, 0.58);
+    background: url(../img/controls/deleteLine.png) no-repeat center, linear-gradient(-38deg, #cf1d37 0%, #cf1d37 1%, #f05036 100%);
+}
+
+.font-ctrls {
+    max-width: 27.8125rem;
+    height: 9.4375rem;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.5625rem 1rem;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 15px;
+    background-color: #19a59f;
+}
+
+.font-ctrls>* {
+    border-radius: 10px;
+    box-shadow: 1px 5px 0 rgba(92, 92, 92, 0.55), inset 0 5px 0 rgba(255, 255, 255, 0.58);
+}
+
+.font-ctrls *:hover {
+    cursor: pointer;
+}
+
+.btn-increase-font {
+    background: url(../img/controls/increaseFont.png) no-repeat center, white;
+}
+
+.btn-decrease-font {
+    background: url(../img/controls/decreaseFont.png) no-repeat center, white;
+}
+
+.btn-align-left {
+    background: url(../img/controls/alignLeft.png) no-repeat center, white;
+}
+
+.btn-align-center {
+    background: url(../img/controls/alignCenter.png) no-repeat center, white;
+}
+
+.btn-align-right {
+    background: url(../img/controls/alignRight.png) no-repeat center, white;
+}
+
+.select-font {
+    width: 14.75rem;
+    height: 3.125rem;
+    border: none;
+    appearance: none;
+    padding: 0.3125rem 1.25rem;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    font-size: 1.6875rem;
+    text-transform: uppercase;
+    background: url(../img/controls/dropdownArrow.png) no-repeat calc(100% - 5px), white;
+    font-family: poppinsMedium, sans-serif;
+}
+
+.btn-stroke {
+    background: url(../img/controls/stroke.png) no-repeat center, white;
+}
+
+label[for="change-color"] {
+    width: 3.125rem;
+    height: 3.125rem;
+    border: none;
+    appearance: none;
+    background: url(../img/controls/color.png) no-repeat center, white;
+}
+
+[name="change-color"] {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: none;
+    visibility: hidden;
+}
+
+.canvas-to-img {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.canvas-to-img>*, .btn-share {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    height: 3.1875rem;
+    width: 13.3125rem;
+}
+
+.canvas-to-img *:not(:last-child) {
+    margin-right: 1.25rem;
+}
+
+.share {
+    box-shadow: 1px 6px 0 #165c9c, inset 0 5px 0 rgba(255, 255, 255, 0.58);
+    background-color: #1e7cd3;
+}
+
+.btn-share {
+    color: inherit;
+    width: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    background: none;
+}
+
+.download {
+    box-shadow: 1px 6px 0 #632687, inset 0 5px 0 rgba(255, 255, 255, 0.58);
+    background-color: #8f44bb;
+}

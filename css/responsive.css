@@ -1,0 +1,116 @@
+@media only screen and (max-width: 920px) {
+    .controls {
+        padding: 1vw;
+    }
+    .font-ctrls {
+        padding: 0.5vw;
+        justify-content: space-around;
+    }
+}
+
+@media only screen and (max-width: 765px) {
+    .controls {
+        padding: 0;
+    }
+    .font-ctrls {
+        padding: 0;
+    }
+    .controls button, .controls select, .controls label, .canvas-to-img>* {
+        height: 2.8125rem;
+    }
+    .grid {
+        grid-gap: 3vw;
+    }
+}
+
+@media only screen and (max-width: 682px) {
+    .page-container {
+        height: 100vh;
+    }
+    .navbar {
+        margin: 0;
+        padding: 1.5rem;
+        min-height: 90px;
+        max-height: 90px;
+        border-radius: unset;
+    }
+    .navbar .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+    .logo {
+        height: 100%;
+    }
+    .list-container {
+        right: 0;
+        top: 90px;
+        position: absolute;
+        height: calc(100vh - 130px);
+        width: 100%;
+        background-color: #22252cb2;
+        z-index: 1;
+    }
+    .main-nav {
+        float: right;
+        width: 50vw;
+        height: 100%;
+        flex-direction: column;
+        background-color: #2cd18cdc;
+        border-left: 1px solid #585858;
+    }
+    .main-nav li:first-child {
+        border-top: 1px solid #2f805edc;
+    }
+    .main-nav li {
+        width: 100%;
+        height: 70px;
+        border-bottom: 1px solid #2f805edc;
+    }
+    .main-nav li>* {
+        height: 100%;
+        border-radius: unset;
+        justify-content: center;
+    }
+    main {
+        margin: 10px;
+    }
+    .gallery {
+        margin-top: 10px;
+    }
+    .img-container {
+        grid-template-columns: repeat(auto-fit, 300px);
+        grid-auto-rows: 287px;
+    }
+    .edit-meme {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .edit-container {
+        margin-right: 0;
+        min-height: 21.875rem;
+        width: 98%;
+    }
+    .controls {
+        padding: 5px 15px;
+        margin-bottom: 3px;
+    }
+    .font-ctrls button, .controls label {
+        min-width: 3rem;
+    }
+    .controls select {
+        width: 40vw;
+        font-size: 1em;
+    }
+    .font-ctrls {
+        height: 40%;
+        min-height: 6.25rem;
+        margin: 3px auto 0;
+    }
+    .canvas-to-img *:not(:last-child) {
+        margin-right: 10px;
+    }
+    .canvas-to-img * {
+        font-size: 1rem;
+    }
+}

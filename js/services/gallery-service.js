@@ -1,10 +1,11 @@
 'use strict';
 const STORAGE_IMAGES_KEY = 'imagesDB';
 const STORAGE_IMGS_LAST_ID = 'imagesLastIdDB';
+const STORAGE_KEYWORDS_MAP = 'keywordsMapDB';
 
 var gImgs = _loadImages();
 var gImgsLastId = _loadImgsLastId();
-var gKeywords = _setKeywords();
+var gKeywordsMap = _loadKeywordsMap();
 
 function getImgForCanvas() {
     const currMeme = getMeme();
@@ -24,7 +25,12 @@ function getKeywords() {
 }
 
 function getKeywordsMap() {
-    return gKeywords;
+    return gKeywordsMap;
+}
+
+function setKeywordsMap(map) {
+    gKeywordsMap = map;
+    _saveKeywordsMap(map);
 }
 
 function _loadImages() {
@@ -56,10 +62,14 @@ function _loadImages() {
     return imgs;
 }
 
-function _setKeywords() {
-    var keywords = getKeywords();
-    var keywordsMap = {};
-    keywords.forEach((keyword) => keywordsMap[keyword] = (keywordsMap[keyword]) ? keywordsMap[keyword] + 1 : 1);
+function _loadKeywordsMap() {
+    var keywordsMap = loadFromStorage(STORAGE_KEYWORDS_MAP);
+    if (!keywordsMap) {
+        let keywords = getKeywords();
+        keywordsMap = {};
+        keywords.forEach((keyword) => keywordsMap[keyword] = (keywordsMap[keyword]) ? keywordsMap[keyword] + 1 : 1);
+        _saveKeywordsMap(keywordsMap);
+    }
     return keywordsMap;
 }
 
@@ -74,4 +84,8 @@ function _saveImgsLastId(id) {
 
 function _saveImages(imgs) {
     saveToStorage(STORAGE_IMAGES_KEY, imgs);
+}
+
+function _saveKeywordsMap(map) {
+    saveToStorage(STORAGE_KEYWORDS_MAP, map);
 }

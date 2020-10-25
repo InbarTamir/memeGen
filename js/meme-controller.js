@@ -29,21 +29,21 @@ function onMoveLine(elBtn) {
 }
 
 function onChangeFontSize(elBtn) {
-    if (document.querySelector('[name="line-txt"]').value.trim() === '') return;
+    if (!document.querySelector('[name="line-txt"]').value.trim()) return;
     var size = +elBtn.dataset.val;
     changeFontSize(size);
     drawCanvas();
 }
 
 function onFontChange(elSelect) {
-    if (document.querySelector('[name="line-txt"]').value.trim() === '') return;
+    if (!document.querySelector('[name="line-txt"]').value.trim()) return;
     var font = elSelect.value;
     changeFont(font);
     drawCanvas();
 }
 
 function onToggleStroke() {
-    if (document.querySelector('[name="line-txt"]').value.trim() === '') return;
+    if (!document.querySelector('[name="line-txt"]').value.trim()) return;
     toggleStroke();
     drawCanvas();
 }

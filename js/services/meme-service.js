@@ -17,7 +17,7 @@ function setMeme(imgId, type) {
         _saveMemes();
     }
     gMeme = currMeme;
-    var selectedLine = (gMeme.lines.length) ? gMeme.lines[gMeme.selectedLineIdx] : { txt: '' };
+    var selectedLine = (gMeme.lines.length) ? getCurrLine() : { txt: '' };
     setSelectedLineInput(selectedLine);
 }
 
@@ -41,14 +41,14 @@ function addNewLine() {
     }
     gMeme.selectedLineIdx = gMeme.lines.length - 1;
     _saveMemes();
-    setSelectedLineInput(gMeme.lines[gMeme.selectedLineIdx]);
+    setSelectedLineInput(getCurrLine());
 }
 
 function deleteLine() {
     gMeme.lines.splice(gMeme.selectedLineIdx, 1);
     gMeme.selectedLineIdx = 0;
     _saveMemes();
-    var txt = (gMeme.lines.length) ? gMeme.lines[gMeme.selectedLineIdx] : { txt: '' };
+    var txt = (gMeme.lines.length) ? getCurrLine() : { txt: '' };
     setSelectedLineInput(txt);
 }
 
@@ -61,7 +61,7 @@ function deleteMeme(imgId) {
 }
 
 function moveLine(value) {
-    var currLine = gMeme.lines[gMeme.selectedLineIdx];
+    var currLine = getCurrLine();
     var nextPos = currLine.pos.y + value;
     if (nextPos >= 0 && nextPos < gCanvas.height) {
         currLine.pos.y = nextPos;
@@ -78,32 +78,42 @@ function switchLine() {
         currLineIdx = nextLineIdx;
     }
     _saveMemes();
-    setSelectedLineInput(gMeme.lines[gMeme.selectedLineIdx]);
+    setSelectedLineInput(getCurrLine());
 }
 
 function changeFontSize(value) {
-    gMeme.lines[gMeme.selectedLineIdx].size += value;
+    getCurrLine().size += value;
     _saveMemes();
 }
 
 function changeFont(font) {
-    gMeme.lines[gMeme.selectedLineIdx].fontFamily = font;
+    getCurrLine().fontFamily = font;
     _saveMemes();
 }
 
 function toggleStroke() {
-    gMeme.lines[gMeme.selectedLineIdx].stroke = (gMeme.lines[gMeme.selectedLineIdx].stroke === 'black') ? 'transparent' : 'black';
+    getCurrLine().stroke = (getCurrLine().stroke === 'black') ? 'transparent' : 'black';
     _saveMemes();
 }
 
 function changeTextAlign(dir) {
-    gMeme.lines[gMeme.selectedLineIdx].align = dir;
+    getCurrLine().align = dir;
     _saveMemes();
 }
 
+
+// CONSIDER USING THIS -->
+// function changeProp(prop, val) {
+//     getCurrLine()[prop] = val
+// }
+
 function changeColor(color) {
-    gMeme.lines[gMeme.selectedLineIdx].color = color;
+    getCurrLine().color = color;
     _saveMemes();
+}
+
+function getCurrLine() {
+    return gMeme.lines[gMeme.selectedLineIdx];
 }
 
 function getMeme() {
@@ -131,7 +141,7 @@ function setSelectedLineIdx(idx) {
 }
 
 function getSelectedLineFont() {
-    return (gMeme.lines.length && gMeme.selectedLineIdx >= 0) ? gMeme.lines[gMeme.selectedLineIdx].fontFamily : 'Impact';
+    return (gMeme.lines.length && gMeme.selectedLineIdx >= 0) ? getCurrLine().fontFamily : 'Impact';
 }
 
 function _createMeme(imgId) {
