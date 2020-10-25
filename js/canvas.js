@@ -51,7 +51,7 @@ function drawCanvas() {
 }
 
 function drawText(line, idx) {
-    if (!line.txt) return;
+    // if (!line.txt) return;
     gCtx.fillStyle = line.color;
     gCtx.font = `bold ${line.size}px ${line.fontFamily}`;
     gCtx.textAlign = line.align;
@@ -64,7 +64,13 @@ function drawText(line, idx) {
     if (currLine === idx) {
         gCtx.fillStyle = 'rgba(255,255,255,0.2)';
         let measureTxt = gCtx.measureText(line.txt);
-        gCtx.fillRect(line.pos.x - 2 - measureTxt.actualBoundingBoxLeft, line.pos.y - line.size, measureTxt.width + 4, line.size + 10);
+        let width = measureTxt.width;
+        let lineX = line.pos.x;
+        if (!width) {
+            width = gCanvas.width;
+            lineX = 0;
+        }
+        gCtx.fillRect(lineX - 2 - measureTxt.actualBoundingBoxLeft, line.pos.y - line.size, width + 4, line.size + 10);
         gCtx.restore();
     }
 }

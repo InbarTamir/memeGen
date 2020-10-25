@@ -73,10 +73,7 @@ function switchLine() {
     var currLineIdx = gMeme.selectedLineIdx;
     var nextLineIdx = 0;
     if (currLineIdx + 1 < gMeme.lines.length) nextLineIdx = currLineIdx + 1;
-    if (gMeme.lines[nextLineIdx].txt.length) {
-        gMeme.selectedLineIdx = nextLineIdx;
-        currLineIdx = nextLineIdx;
-    }
+    gMeme.selectedLineIdx = nextLineIdx;
     _saveMemes();
     setSelectedLineInput(getCurrLine());
 }
@@ -168,7 +165,7 @@ function _createLine() {
         size: 40,
         align: 'center',
         color: 'white',
-        fontFamily: 'Impact',
+        fontFamily: getFontFamily(),
         stroke: 'black',
         pos: newPos
     };

@@ -21,8 +21,8 @@ function renderMemedImgs() {
             <div class="meme-hover" data-img="${img.id}" onmouseover="onToggleMemeOpts(this)" onmouseout="onToggleMemeOpts(this)">
                 <img data-img="${img.id}" data-type="modified" src="${img.url}" />
                 <div class="meme-btns hide" data-img="${img.id}">
-                    <button class="btn-edit-meme" data-img="${img.id}" onclick="onEditMeme(this)"></button>
-                    <button class="btn-delete-meme" data-img="${img.id}" onclick="onDeleteMeme(this)"></button>
+                    <button class="btn btn-edit-meme" data-img="${img.id}" onclick="onEditMeme(this)"></button>
+                    <button class="btn btn-delete-meme" data-img="${img.id}" onclick="onDeleteMeme(this)"></button>
                 </div>
             </div>`;
     });

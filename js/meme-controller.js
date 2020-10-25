@@ -36,6 +36,7 @@ function onChangeFontSize(elBtn) {
 }
 
 function onFontChange(elSelect) {
+    elSelect.style.fontFamily = elSelect.value;
     if (!document.querySelector('[name="line-txt"]').value.trim()) return;
     var font = elSelect.value;
     changeFont(font);
@@ -64,4 +65,8 @@ function onColorChange(elColor) {
 
 function setSelectedLineInput(line) {
     document.querySelector('[name=line-txt]').value = line.txt;
+}
+
+function getFontFamily() {
+    return document.querySelector('.select-font').value;
 }

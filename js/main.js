@@ -31,7 +31,7 @@ function onSearch(elSpan) {
 
     var keywordsMap = getKeywordsMap();
     if (keywordsMap && keywordsMap[keyword]) {
-        keywordsMap[keyword]++;
+        if (keywordsMap[keyword] < 44) keywordsMap[keyword]++;
         let entries = Object.entries(keywordsMap);
         let keywordIdx = entries.findIndex(entry => entry[0] === keyword);
         entries.unshift(entries.splice(keywordIdx, 1)[0]);
@@ -39,6 +39,10 @@ function onSearch(elSpan) {
     }
     renderKeywords();
     renderImages(keyword);
+}
+
+function onToggleMoreWords() {
+    document.querySelector('.keywords-container').classList.toggle('expand-words');
 }
 
 function setKeywordsList() {

@@ -26,17 +26,9 @@ a {
     font-size: 1em;
 }
 
-button {
-    border: none;
-}
-
-button:focus, select:focus, input:focus {
+select:focus, input:focus {
     border: none;
     outline: none;
-}
-
-button:active {
-    transform: translateY(2px);
 }
 
 [type="radio"] {

@@ -4,6 +4,21 @@
     grid-gap: 1.5rem 1.875rem;
 }
 
+.btn {
+    border: none;
+    cursor: pointer;
+    color: inherit;
+}
+
+.btn:active {
+    transform: translateY(2px);
+}
+
+.btn:focus {
+    border: none;
+    outline: none;
+}
+
 .hide {
     display: none;
 }

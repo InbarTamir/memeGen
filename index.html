@@ -20,7 +20,7 @@
             <div class="logo">
                 <img src="img/logo/logo.png" onclick="onOpenGallery()" />
             </div>
-            <div class="list-container" onclick="onToggleMenu()">
+            <nav class="list-container" onclick="onToggleMenu()">
                 <ul class="main-nav clean-list">
                     <li onclick="onToggleMenu()">
                         <input type="radio" name="nav-radio" id="nav-gallery" checked>
@@ -31,7 +31,7 @@
                         <label for="nav-memes" onclick="onSavedMemeImgs()">Memes</label>
                     </li>
                 </ul>
-            </div>
+            </nav>
             <img class="hamburger hide" src="img/logo/hamburger.png" onclick="onToggleMenu()" />
         </header>
 
@@ -46,6 +46,7 @@
                         <img src="img/serach.png" onclick="onSearch()" />
                     </div>
                     <div class="keywords-container"></div>
+                    <button class="btn btn-more" onclick="onToggleMoreWords()">More</button>
                 </div>
                 <div class="img-container grid"></div>
             </section>
@@ -60,40 +61,40 @@
                     <input type="text" name="line-txt" id="line-txt" onkeyup="onChangeLineTxt(this)">
 
                     <div class="line-ctrls">
-                        <button class="btn-switch-lines" onclick="onSwitchLines()"></button>
-                        <button class="btn-line-txt" onclick="onAddLine()"></button>
-                        <button class="btn-delete-line" onclick="onDeleteLine()"></button>
-                        <button class="btn-move-up" data-val="-5" onclick="onMoveLine(this)"></button>
-                        <button class="btn-move-down" data-val="5" onclick="onMoveLine(this)"></button>
+                        <button class="btn btn-line-txt" onclick="onAddLine()"></button>
+                        <button class="btn btn-delete-line" onclick="onDeleteLine()"></button>
+                        <button class="btn btn-move-up" data-val="-5" onclick="onMoveLine(this)"></button>
+                        <button class="btn btn-move-down" data-val="5" onclick="onMoveLine(this)"></button>
+                        <button class="btn btn-switch-lines" onclick="onSwitchLines()"></button>
                     </div>
 
                     <div class="font-ctrls">
-                        <button class="btn-increase-font" data-val="3" onclick="onChangeFontSize(this)"></button>
-                        <button class="btn-decrease-font" data-val="-3" onclick="onChangeFontSize(this)"></button>
-                        <button class="btn-align-left" data-dir="left" onclick="onTextAlign(this)"></button>
-                        <button class="btn-align-center" data-dir="center" onclick="onTextAlign(this)"></button>
-                        <button class="btn-align-right" data-dir="right" onclick="onTextAlign(this)"></button>
+                        <button class="btn btn-increase-font" data-val="3" onclick="onChangeFontSize(this)"></button>
+                        <button class="btn btn-decrease-font" data-val="-3" onclick="onChangeFontSize(this)"></button>
+                        <button class="btn btn-align-left" data-dir="left" onclick="onTextAlign(this)"></button>
+                        <button class="btn btn-align-center" data-dir="center" onclick="onTextAlign(this)"></button>
+                        <button class="btn btn-align-right" data-dir="right" onclick="onTextAlign(this)"></button>
 
                         <select class="select-font" name="select-font" onchange="onFontChange(this)">
                             <option style="font-family: Impact;" value="Impact">impact</option>
                             <option style="font-family: Arial;" value="Arial">arial</option>
-                            <option style="font-family: Times New Roman;" value="Times New Roman">times new roman</option>
+                            <option style="font-family: 'Times New Roman';" value="Times New Roman">times new roman</option>
                             <option style="font-family: Georgia;" value="Georgia">georgia</option>
                             <option style="font-family: Verdana;" value="Verdana">verdana</option>
                             <option style="font-family: cursive;" value="cursive">cursive</option>
-                            <option style="font-family: ;" value="Courier New">courier new</option>
-                            <option style="font-family: ;" value="Gill Sans">gill sans</option>
-                            <option style="font-family: ;" value="Cambria">cambria</option>
-                            <option style="font-family: ;" value="Lucida Sans">lucida sans</option>
-                            <option style="font-family: ;" value="Segoe UI">segoe ui</option>
-                            <option style="font-family: ;" value="Trebuchet MS">trebuchet ms</option>
-                            <option style="font-family: ;" value="sans-serif">sans serif</option>
-                            <option style="font-family: ;" value="serif">serif</option>
-                            <option style="font-family: ;" value="fantasy">fantasy</option>
-                            <option style="font-family: ;" value="monospace">monospace</option>
+                            <option style="font-family: 'Courier New';" value="Courier New">courier new</option>
+                            <option style="font-family: 'Gill Sans';" value="Gill Sans">gill sans</option>
+                            <option style="font-family: Cambria;" value="Cambria">cambria</option>
+                            <option style="font-family: 'Lucida Sans';" value="Lucida Sans">lucida sans</option>
+                            <option style="font-family: 'Segoe UI';" value="Segoe UI">segoe ui</option>
+                            <option style="font-family: 'Trebuchet MS';" value="Trebuchet MS">trebuchet ms</option>
+                            <option style="font-family: sans-serif;" value="sans-serif">sans serif</option>
+                            <option style="font-family: serif;" value="serif">serif</option>
+                            <option style="font-family: fantasy;" value="fantasy">fantasy</option>
+                            <option style="font-family: monospace;" value="monospace">monospace</option>
                         </select>
 
-                        <button class="btn-stroke" onclick="onToggleStroke()"></button>
+                        <button class="btn btn-stroke" onclick="onToggleStroke()"></button>
 
                         <label for="change-color">
                             <input type="color" id="change-color" name="change-color"
@@ -108,7 +109,7 @@
                                 onsubmit="uploadImg(this, event)">
                                 <input name="img" id="imgData" type="hidden" />
                                 <div class="share-container">
-                                    <button class="btn-share" type="submit">Share</button>
+                                    <button class="btn btn-share" type="submit">Share</button>
                                 </div>
                             </form>
                         </div>
