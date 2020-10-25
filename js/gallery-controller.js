@@ -48,8 +48,9 @@ function onSearch(elSpan) {
     renderImages(keyword);
 }
 
-function onToggleMoreWords() {
+function onToggleMoreWords(elBtn) {
     document.querySelector('.keywords-container').classList.toggle('expand-words');
+    elBtn.innerText = (elBtn.innerText === 'More') ? 'Less' : 'More';
 }
 
 function setKeywordsList() {

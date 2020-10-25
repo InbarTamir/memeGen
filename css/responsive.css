@@ -71,6 +71,20 @@
     main {
         margin: 10px;
     }
+    .search-container {
+        /* flex-flow: row-reverse wrap; */
+        flex-wrap: wrap;
+    }
+    .search-bar {
+        width: 90vw;
+    }
+    .btn-more {
+        margin-top: 20px;
+    }
+    .keywords-container {
+        margin: 10px 0 0 20px;
+        flex-grow: 1;
+    }
     .gallery {
         margin-top: 10px;
     }

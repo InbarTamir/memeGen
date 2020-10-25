@@ -22,18 +22,13 @@
             </div>
             <!-- NAV -->
             <div class="list-container" onclick="onToggleMenu()">
-                <!-- <ul class="main-nav clean-list"> -->
-                <!-- <li onclick="onToggleMenu()"> -->
                 <nav class="main-nav">
                     <input type="radio" name="nav-radio" id="nav-gallery" checked>
                     <label for="nav-gallery" onclick="onOpenGallery()">Gallery</label>
-                    <!-- </li> -->
-                    <!-- <li onclick="onToggleMenu()"> -->
+
                     <input type="radio" name="nav-radio" id="nav-memes">
                     <label for="nav-memes" onclick="onSavedMemeImgs()">Memes</label>
                 </nav>
-                <!-- </li> -->
-                <!-- </ul> -->
             </div>
             <img class="hamburger hide" src="img/logo/hamburger.png" onclick="onToggleMenu()" />
         </header>
@@ -52,7 +47,7 @@
                     </div>
                     <!-- KEYWORDS -->
                     <div class="keywords-container"></div>
-                    <button class="btn btn-more" onclick="onToggleMoreWords()">More</button>
+                    <button class="btn btn-more" onclick="onToggleMoreWords(this)">More</button>
                 </div>
                 <div class="img-container grid"></div>
             </section>

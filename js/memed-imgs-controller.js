@@ -30,7 +30,7 @@ function renderMemedImgs() {
     document.querySelector('.saved-memes .img-container').innerHTML = strHtml;
 }
 
-function onToggleMemeOpts(elDiv, ev) {
+function onToggleMemeOpts(elDiv) {
     var imgId = elDiv.dataset.img;
     var elImg = document.querySelector(`.meme-hover img[data-img="${imgId}"]`);
     document.querySelector(`.meme-btns[data-img="${imgId}"]`).classList.toggle('hide');
