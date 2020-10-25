@@ -93,19 +93,8 @@ function toggleStroke() {
     _saveMemes();
 }
 
-function changeTextAlign(dir) {
-    getCurrLine().align = dir;
-    _saveMemes();
-}
-
-
-// CONSIDER USING THIS -->
-// function changeProp(prop, val) {
-//     getCurrLine()[prop] = val
-// }
-
-function changeColor(color) {
-    getCurrLine().color = color;
+function changeProp(prop, val) {
+    getCurrLine()[prop] = val;
     _saveMemes();
 }
 

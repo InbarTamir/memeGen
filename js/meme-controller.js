@@ -22,44 +22,34 @@ function onSwitchLines() {
     drawCanvas();
 }
 
-function onMoveLine(elBtn) {
-    var value = +elBtn.dataset.val;
-    moveLine(value);
+function onMoveLine(amount) {
+    moveLine(amount);
     drawCanvas();
 }
 
-function onChangeFontSize(elBtn) {
-    if (!document.querySelector('[name="line-txt"]').value.trim()) return;
-    var size = +elBtn.dataset.val;
-    changeFontSize(size);
+function onChangeFontSize(amount) {
+    if (isEmptyTxtInput()) return;
+    changeFontSize(amount);
     drawCanvas();
 }
 
 function onFontChange(elSelect) {
     elSelect.style.fontFamily = elSelect.value;
-    if (!document.querySelector('[name="line-txt"]').value.trim()) return;
+    if (isEmptyTxtInput()) return;
     var font = elSelect.value;
     changeFont(font);
     drawCanvas();
 }
 
 function onToggleStroke() {
-    if (!document.querySelector('[name="line-txt"]').value.trim()) return;
+    if (isEmptyTxtInput()) return;
     toggleStroke();
     drawCanvas();
 }
 
-function onTextAlign(elBtn) {
-    if (document.querySelector('[name="line-txt"]').value.trim() === '') return;
-    var dir = elBtn.dataset.dir;
-    changeTextAlign(dir);
-    drawCanvas();
-}
-
-function onColorChange(elColor) {
-    if (document.querySelector('[name="line-txt"]').value.trim() === '') return;
-    var color = elColor.value;
-    changeColor(color);
+function onChangeProp(prop, val) {
+    if (isEmptyTxtInput()) return;
+    changeProp(prop, val);
     drawCanvas();
 }
 
@@ -69,4 +59,8 @@ function setSelectedLineInput(line) {
 
 function getFontFamily() {
     return document.querySelector('.select-font').value;
+}
+
+function isEmptyTxtInput() {
+    return !document.querySelector('[name="line-txt"]').value.trim();
 }

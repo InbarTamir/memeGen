@@ -51,7 +51,6 @@ function drawCanvas() {
 }
 
 function drawText(line, idx) {
-    // if (!line.txt) return;
     gCtx.fillStyle = line.color;
     gCtx.font = `bold ${line.size}px ${line.fontFamily}`;
     gCtx.textAlign = line.align;

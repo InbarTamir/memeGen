@@ -20,18 +20,21 @@
             <div class="logo">
                 <img src="img/logo/logo.png" onclick="onOpenGallery()" />
             </div>
-            <nav class="list-container" onclick="onToggleMenu()">
-                <ul class="main-nav clean-list">
-                    <li onclick="onToggleMenu()">
-                        <input type="radio" name="nav-radio" id="nav-gallery" checked>
-                        <label for="nav-gallery" onclick="onOpenGallery()">Gallery</label>
-                    </li>
-                    <li onclick="onToggleMenu()">
-                        <input type="radio" name="nav-radio" id="nav-memes">
-                        <label for="nav-memes" onclick="onSavedMemeImgs()">Memes</label>
-                    </li>
-                </ul>
-            </nav>
+            <!-- NAV -->
+            <div class="list-container" onclick="onToggleMenu()">
+                <!-- <ul class="main-nav clean-list"> -->
+                <!-- <li onclick="onToggleMenu()"> -->
+                <nav class="main-nav">
+                    <input type="radio" name="nav-radio" id="nav-gallery" checked>
+                    <label for="nav-gallery" onclick="onOpenGallery()">Gallery</label>
+                    <!-- </li> -->
+                    <!-- <li onclick="onToggleMenu()"> -->
+                    <input type="radio" name="nav-radio" id="nav-memes">
+                    <label for="nav-memes" onclick="onSavedMemeImgs()">Memes</label>
+                </nav>
+                <!-- </li> -->
+                <!-- </ul> -->
+            </div>
             <img class="hamburger hide" src="img/logo/hamburger.png" onclick="onToggleMenu()" />
         </header>
 
@@ -39,12 +42,15 @@
         <main>
             <!-- GALLERY -->
             <section class="main-imgs gallery">
+                <!-- SEARCH -->
                 <div class="search-container">
+                    <!-- SEARCH BAR -->
                     <div class="search-bar">
                         <input class="search-input" list="keywords" oninput="onSearch()" placeholder="Search">
                         <datalist class="search-list" id="keywords"></datalist>
                         <img src="img/serach.png" onclick="onSearch()" />
                     </div>
+                    <!-- KEYWORDS -->
                     <div class="keywords-container"></div>
                     <button class="btn btn-more" onclick="onToggleMoreWords()">More</button>
                 </div>
@@ -59,26 +65,27 @@
                 <!-- CONTROLS -->
                 <div class="controls edit-container">
                     <input type="text" name="line-txt" id="line-txt" onkeyup="onChangeLineTxt(this)">
-
+                    <!-- LINE -->
                     <div class="line-ctrls">
                         <button class="btn btn-line-txt" onclick="onAddLine()"></button>
                         <button class="btn btn-delete-line" onclick="onDeleteLine()"></button>
-                        <button class="btn btn-move-up" data-val="-5" onclick="onMoveLine(this)"></button>
-                        <button class="btn btn-move-down" data-val="5" onclick="onMoveLine(this)"></button>
+                        <button class="btn btn-move-up" onclick="onMoveLine(-5)"></button>
+                        <button class="btn btn-move-down" onclick="onMoveLine(5)"></button>
                         <button class="btn btn-switch-lines" onclick="onSwitchLines()"></button>
                     </div>
-
+                    <!-- FONT -->
                     <div class="font-ctrls">
-                        <button class="btn btn-increase-font" data-val="3" onclick="onChangeFontSize(this)"></button>
-                        <button class="btn btn-decrease-font" data-val="-3" onclick="onChangeFontSize(this)"></button>
-                        <button class="btn btn-align-left" data-dir="left" onclick="onTextAlign(this)"></button>
-                        <button class="btn btn-align-center" data-dir="center" onclick="onTextAlign(this)"></button>
-                        <button class="btn btn-align-right" data-dir="right" onclick="onTextAlign(this)"></button>
+                        <button class="btn btn-increase-font" onclick="onChangeFontSize(3)"></button>
+                        <button class="btn btn-decrease-font" onclick="onChangeFontSize(-3)"></button>
+                        <button class="btn btn-align-left" onclick="onChangeProp('align', 'left')"></button>
+                        <button class="btn btn-align-center" onclick="onChangeProp('align', 'center')"></button>
+                        <button class="btn btn-align-right" onclick="onChangeProp('align', 'right')"></button>
 
                         <select class="select-font" name="select-font" onchange="onFontChange(this)">
                             <option style="font-family: Impact;" value="Impact">impact</option>
                             <option style="font-family: Arial;" value="Arial">arial</option>
-                            <option style="font-family: 'Times New Roman';" value="Times New Roman">times new roman</option>
+                            <option style="font-family: 'Times New Roman';" value="Times New Roman">times new roman
+                            </option>
                             <option style="font-family: Georgia;" value="Georgia">georgia</option>
                             <option style="font-family: Verdana;" value="Verdana">verdana</option>
                             <option style="font-family: cursive;" value="cursive">cursive</option>
@@ -98,10 +105,10 @@
 
                         <label for="change-color">
                             <input type="color" id="change-color" name="change-color"
-                                onchange="onColorChange(this)"></button>
+                                onchange="onChangeProp('color', this.value)"></button>
                         </label>
                     </div>
-
+                    <!-- SHARE -->
                     <div class="canvas-to-img">
                         <div class="share">
                             <img src="img/controls/share.png">
@@ -136,7 +143,6 @@
     <script src="js/canvas.js"></script>
     <script src="js/services/meme-service.js"></script>
     <script src="js/meme-controller.js"></script>
-    <script src="js/main.js"></script>
 </body>
 
 </html>
