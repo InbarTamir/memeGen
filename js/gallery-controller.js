@@ -23,6 +23,7 @@ function onToggleMenu() {
 }
 
 function onOpenGallery() {
+    document.querySelector('.main-nav [checked]').checked = true;
     var elSections = document.querySelectorAll('section');
     elSections.forEach(section => section.classList.add('hide'));
     document.querySelector('.gallery').classList.remove('hide');

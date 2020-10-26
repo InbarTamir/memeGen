@@ -72,7 +72,6 @@
         margin: 10px;
     }
     .search-container {
-        /* flex-flow: row-reverse wrap; */
         flex-wrap: wrap;
     }
     .search-bar {

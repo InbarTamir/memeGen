@@ -26,9 +26,6 @@ function onCanvasInit(elImg) {
     showCanvas();
 }
 
-function onShareCanvas() {
-}
-
 function onDownloadCanvas(elLink) {
     const currImg = getCurrMemedImage();
     elLink.href = currImg.url;

@@ -20,6 +20,11 @@ body {
     background-color: #22252c;
 }
 
+p {
+    margin: 0 auto;
+    padding: 0;
+}
+
 a {
     text-decoration: none;
     color: inherit;

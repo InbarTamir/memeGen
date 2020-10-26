@@ -8,7 +8,7 @@
 
 .edit-container {
     max-width: 33.125rem;
-    max-height: 48vw;
+    max-height: 50vw;
     width: 50vw;
     display: flex;
     flex-direction: column;
@@ -38,6 +38,7 @@ canvas {
     text-align: center;
     justify-content: space-between;
     padding: 3vw;
+    position: relative;
 }
 
 .controls>* {
@@ -63,12 +64,19 @@ canvas {
     margin-right: 0.625rem;
 }
 
+.txt-container {
+    position: relative; 
+    width: 100%;
+    margin: 0;
+}
+
 .controls [name="line-txt"] {
     font-family: poppinsMedium, sans-serif;
     font-size: 1.5625rem;
     text-align: center;
     padding: 0.3em;
     border: none;
+    max-height: 2.2em;
     width: 100%;
     color: #3d3d3d;
     border-radius: 28px;
@@ -101,6 +109,33 @@ canvas {
     box-shadow: 1px 5px 0 #8c0606, inset 0 5px 0 rgba(255, 255, 255, 0.58);
     background: url(../img/controls/deleteLine.png) no-repeat center, linear-gradient(-38deg, #cf1d37 0%, #cf1d37 1%, #f05036 100%);
 }
+
+.msg-container {
+    margin: 0;
+    position: absolute;
+    top: 1.2rem;
+    right: 0.75rem;
+}
+
+.msg-saved {
+    color: red;
+    font-size: 1.2rem;
+    transform: rotate(-30deg);
+    font-family: poppingMedium, sans-serif;
+    filter: drop-shadow(2px 4px 6px black);
+}
+
+.msg-animate {
+    animation: msg-animate 1.5s infinite;
+}
+
+@keyframes msg-animate {
+    0%  {transform: scale(1, 1);}
+    25%   {transform: scale(1.1, 1.1);}
+    50% {transform: scale(1, 1);}
+    75%   {transform: scale(1.1, 1.1);}
+    100% {transform: scale(1, 1);}
+  }
 
 .font-ctrls {
     max-width: 27.8125rem;

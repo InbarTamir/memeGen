@@ -140,7 +140,7 @@ function _createMeme(imgId) {
 }
 
 function _createLine() {
-    var newPos = gPositions[2];
+    var newPos = JSON.parse(JSON.stringify(gPositions[2]));
     for (var i = 0; i < 2; i++) {
         let currPos = gPositions[i];
         let res = gMeme.lines.findIndex(line => line.pos.x === currPos.x && line.pos.y === currPos.y);

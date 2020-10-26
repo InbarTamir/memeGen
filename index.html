@@ -59,7 +59,12 @@
                 </div>
                 <!-- CONTROLS -->
                 <div class="controls edit-container">
-                    <input type="text" name="line-txt" id="line-txt" onkeyup="onChangeLineTxt(this)">
+                    <div class="txt-container"  >
+                        <input type="text" name="line-txt" id="line-txt" onkeyup="onChangeLineTxt(this)">
+                        <div class="msg-container msg-animate">
+                            <p class="msg-saved hide">Saved!</p>
+                        </div>
+                    </div>
                     <!-- LINE -->
                     <div class="line-ctrls">
                         <button class="btn btn-line-txt" onclick="onAddLine()"></button>
